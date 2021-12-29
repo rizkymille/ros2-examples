@@ -9,13 +9,13 @@
 using std::placeholders::_1;
 using std::placeholders::_2;
 
-class ListenerServer : public rclcpp::Node {
+class ListenerServerCpp : public rclcpp::Node {
 
   public:
     // CONSTRUCTOR
-    ListenerServer() : Node("listener_server") {
-      sub_msgs = this->create_subscription<std_msgs::msg::String>("example_msgs/msgs", 10, std::bind(&ListenerServer::topic_callback, this, _1));
-      server_print = this->create_service<example_msgs::srv::Print>("example_srv/print", std::bind(&ListenerServer::print, this, _1, _2));
+    ListenerServerCpp() : Node("listener_server_cpp") {
+      sub_msgs = this->create_subscription<std_msgs::msg::String>("example_msgs/msgs", 10, std::bind(&ListenerServerCpp::topic_callback, this, _1));
+      server_print = this->create_service<example_msgs::srv::Print>("example_srv/print", std::bind(&ListenerServerCpp::print, this, _1, _2));
     }
 
   private:
@@ -54,8 +54,8 @@ class ListenerServer : public rclcpp::Node {
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Initiating listener...");
-  rclcpp::spin(std::make_shared<ListenerServer>());
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Initiating listener and server...");
+  rclcpp::spin(std::make_shared<ListenerServerCpp>());
   rclcpp::shutdown();
   return 0;
 }
