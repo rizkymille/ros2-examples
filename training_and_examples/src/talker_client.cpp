@@ -29,6 +29,9 @@ class TalkerClientCpp : public rclcpp::Node {
       // client
       cli_print = this->create_client<example_msgs::srv::Print>("example_srv/print");
 
+      // parameters
+      this->declare_parameter<std::string>("example_param/Input");
+
       TalkerClientCpp::service_check();
 
     }
@@ -36,10 +39,13 @@ class TalkerClientCpp : public rclcpp::Node {
   private:
     // basically void loop in arduino, but more e p i c
     void timer_callback() {
+      this->get_parameter("example_param/Input", param_msgs);
+
       auto msg = std_msgs::msg::String();
       msg.data = "Halo dunia!";
       pub_msgs->publish(msg);
-      request_print("PRINT");
+
+      request_print(param_msgs);
     }
 
     // make sure all service online (in the beginning only, cause wait_for_service will mess granularity)
@@ -76,6 +82,8 @@ class TalkerClientCpp : public rclcpp::Node {
     }
 
     std::string old_print;
+
+    std::string param_msgs;
 
     // create timer object
     rclcpp::TimerBase::SharedPtr timer_;

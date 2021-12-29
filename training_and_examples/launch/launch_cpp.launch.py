@@ -15,7 +15,7 @@ def generate_launch_description():
     package='training_and_examples',
     executable='talker_client_cpp',
     name='talker_client',
-    parameters=[{"command":"PRINT"}],
+    parameters=[{"example_param/Input":"PRINT"}],
     output='screen'
   )
 
