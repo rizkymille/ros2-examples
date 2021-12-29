@@ -10,26 +10,31 @@
 
 using namespace std::chrono_literals;
 
+using std::placeholders::_1;
+
 /* This example creates a subclass of Node and uses std::bind() to register a
 * member function as a callback from the timer. */
 
-class TalkerClient : public rclcpp::Node {
-
-  rclcpp::executors::SingleThreadedExecutor executor;
+class TalkerClientCpp : public rclcpp::Node {
 
   public:
-    TalkerClient() : Node("talker_client") {
-      // define publisher variable  
+    // CONSTRUCTOR //
+    TalkerClientCpp() : Node("talker_client_cpp") {
+      // publisher
       pub_msgs = this->create_publisher<std_msgs::msg::String>("example_msgs/msgs", 10);
 
-      // define timer variable
-      timer_ = this->create_wall_timer(500ms, std::bind(&TalkerClient::timer_callback, this));
+      // timer
+      timer_ = this->create_wall_timer(500ms, std::bind(&TalkerClientCpp::timer_callback, this));
 
-      server_client = this->create_client<example_msgs::srv::Print>("example_srv/print");
+      // client
+      cli_print = this->create_client<example_msgs::srv::Print>("example_srv/print");
+
+      TalkerClientCpp::service_check();
+
     }
 
   private:
-    // define what to do when timer ticks
+    // basically void loop in arduino, but more e p i c
     void timer_callback() {
       auto msg = std_msgs::msg::String();
       msg.data = "Halo dunia!";
@@ -37,6 +42,17 @@ class TalkerClient : public rclcpp::Node {
       request_print("PRINT");
     }
 
+    // make sure all service online (in the beginning only, cause wait_for_service will mess granularity)
+    void service_check() {
+      while (!cli_print->wait_for_service(1s)) {
+        if (!rclcpp::ok()) {
+          RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for the service. Exiting.");
+          return;
+        }
+        RCLCPP_INFO(this->get_logger(), "Service not available, waiting...");
+      }
+    }
+ 
     void request_print(const std::string& input) {
       std::string new_print = input;
 
@@ -44,42 +60,39 @@ class TalkerClient : public rclcpp::Node {
 
         auto request = std::make_shared<example_msgs::srv::Print::Request>();
         request->command = input; 
-        while (!server_client->wait_for_service(1s)) {
-          if (!rclcpp::ok()) {
-            RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for the service. Exiting.");
-            return;
-          }
-          RCLCPP_INFO(this->get_logger(), "service not available, waiting again...");
-        }
 
-        auto result = server_client->async_send_request(request);
-        if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) == rclcpp::FutureReturnCode::SUCCESS) {
-          RCLCPP_INFO(this->get_logger(), "%d", result.get()->success);
-          old_print = new_print;
-        } 
-        else {
-          RCLCPP_ERROR(this->get_logger(), "Failed to call service");
-        }
+        cli_print->async_send_request(request, std::bind(&TalkerClientCpp::future_callback, this, _1));  // with a callback function
       } 
  
     }
 
+    void future_callback(const rclcpp::Client<example_msgs::srv::Print>::SharedFuture future) {
+      std::shared_ptr<example_msgs::srv::Print::Response> result = future.get();
+      RCLCPP_INFO(this->get_logger(), "Service call responded with %s", result->success ? "true" : "false");
+      
+      /* this function could return the other than void type. Interesting for future reference */
+      // return true;
+      // return false if something goes wrong
+    }
+
     std::string old_print;
 
-    // create timer variable
+    // create timer object
     rclcpp::TimerBase::SharedPtr timer_;
-    // create publisher variable
+
+    // create publisher object
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_msgs;
 
-    rclcpp::Client<example_msgs::srv::Print>::SharedPtr server_client;
+    // create service client object
+    rclcpp::Client<example_msgs::srv::Print>::SharedPtr cli_print;
 
 };
 
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Initiating talker...");
-  rclcpp::spin(std::make_shared<TalkerClient>());
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Initiating talker and client...");
+  rclcpp::spin(std::make_shared<TalkerClientCpp>());
   rclcpp::shutdown();
   return 0;
 }
