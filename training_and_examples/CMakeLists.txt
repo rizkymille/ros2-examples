@@ -41,16 +41,16 @@ find_package(example_msgs REQUIRED)
 
 
 # Create Cpp executable
-add_executable(listener_server 
+add_executable(listener_server_cpp 
   src/listener_server.cpp)
-ament_target_dependencies(listener_server 
+ament_target_dependencies(listener_server_cpp 
   rclcpp
   std_msgs
   example_msgs)
 
-add_executable(talker_client 
+add_executable(talker_client_cpp 
   src/talker_client.cpp)
-ament_target_dependencies(talker_client 
+ament_target_dependencies(talker_client_cpp 
   rclcpp
   std_msgs
   example_msgs)
@@ -84,9 +84,14 @@ endif()
 
 # Install Cpp executables
 install(TARGETS
-  listener_server
-  talker_client
+  listener_server_cpp
+  talker_client_cpp
   DESTINATION lib/${PROJECT_NAME}
+)
+
+# Install launch file
+install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
 )
 
 # Install header files
