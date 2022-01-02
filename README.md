@@ -11,11 +11,8 @@ If the interface package contains srv and msg type, then the package name should
 `<package_name>_infs`
 
 ## TODO
-- Create custom message example
-- Create parameter server
-- Create C++ action example
 - Create C++ library example
-- Create python topic example
-- Create python service example
-- Create python action example
 - Create python library example
+- Create C++ action example
+- Create python action example
+
