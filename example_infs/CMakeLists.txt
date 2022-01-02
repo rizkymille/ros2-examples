@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(example_msgs)
+project(example_infs)
 
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 14)
