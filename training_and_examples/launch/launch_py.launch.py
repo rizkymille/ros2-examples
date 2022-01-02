@@ -11,7 +11,7 @@ def generate_launch_description():
 
   listener_server_node = Node(
     package='training_and_examples',
-    executable='listener_server_cpp',
+    executable='listener_server_python',
     name='listener_server',
     # biar bisa masukkin global param:
     # parameters=glob_params,
@@ -20,7 +20,7 @@ def generate_launch_description():
 
   talker_client_node = Node(
     package='training_and_examples',
-    executable='talker_client_cpp',
+    executable='talker_client_python',
     name='talker_client',
     # biar bisa masukkin global param:
     # parameters=glob_params+[{"example_param/Input":"PRINT"}],
