@@ -21,23 +21,22 @@ find_package(rclpy REQUIRED)
 
 # Message dependencies
 find_package(std_msgs REQUIRED)
-find_package(example_msgs REQUIRED)
+find_package(example_infs REQUIRED)
 
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-# Include cpp "include" directory
-#include_directories(include/${PROJECT_NAME})
+# Add include directory
+#include_directories(include)
 
 # Create Cpp library from header
 # set(HEADER_FILES include/the_library/lib_header.hpp)
-#add_library(Header
-#  src/Header.cpp
-#  include/${PROJECT_NAME}/Header.hpp)
-#ament_export_targets(Header
+#add_library(Header SHARED src/Header.cpp)
+#ament_target_dependencies(Header 
 #  rclcpp
-#  std_msgs)
+#  std_msgs
+#  example_infs)
 
 
 # Create Cpp executable
@@ -46,14 +45,14 @@ add_executable(listener_server_cpp
 ament_target_dependencies(listener_server_cpp 
   rclcpp
   std_msgs
-  example_msgs)
+  example_infs)
 
 add_executable(talker_client_cpp 
   src/talker_client.cpp)
 ament_target_dependencies(talker_client_cpp 
   rclcpp
   std_msgs
-  example_msgs)
+  example_infs)
 
 #add_executable(using_lib 
 #  src/using_lib.cpp)
@@ -101,25 +100,23 @@ install(DIRECTORY launch
 #)
 
 ## Install and export library
-#install(
-#  TARGETS headers
-#  EXPORT headers
+#install(TARGETS 
+#  Header
 #  LIBRARY DESTINATION lib
 #  ARCHIVE DESTINATION lib
 #  RUNTIME DESTINATION bin
-#  INCLUDES DESTINATION include
 #)
 
 
 # Install Python modules
-#ament_python_install_package(${PROJECT_NAME})
+# ament_python_install_package(scripts)
 
 # Install Python executables
-#install(PROGRAMS
-#  src/scripts/listener_server.py
-#  src/scripts/talker_client.py
-#  DESTINATION lib/${PROJECT_NAME}
-#)
+install(PROGRAMS
+  scripts/listener_server.py 
+  scripts/talker_client.py
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 
 ament_package()
