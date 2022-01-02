@@ -5,8 +5,8 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
-#include "example_msgs/srv/print.hpp"
-#include "example_msgs/msg/uhuy.hpp"
+#include "example_infs/srv/print.hpp"
+#include "example_infs/msg/uhuy.hpp"
 
 using namespace std::chrono_literals;
 
@@ -18,19 +18,17 @@ class ListenerServerCpp : public rclcpp::Node {
   public:
     // CONSTRUCTOR
     ListenerServerCpp() : Node("listener_server_cpp") {
-      sub_msgs = this->create_subscription<std_msgs::msg::String>("example_msgs/msgs", 10, std::bind(&ListenerServerCpp::topic_callback, this, _1));
       
-      sub_uhuy = this->create_subscription<example_msgs::msg::Uhuy>("example_msgs/uhuy", 10, std::bind(&ListenerServerCpp::uhuy_callback, this, _1));
+      RCLCPP_INFO(this->get_logger(), "Initiating listener and server...");
 
-      server_print = this->create_service<example_msgs::srv::Print>("example_srv/print", std::bind(&ListenerServerCpp::print, this, _1, _2));
+      sub_msgs = this->create_subscription<std_msgs::msg::String>("example_msg/msgs", 10, std::bind(&ListenerServerCpp::topic_callback, this, _1));
+      
+      sub_uhuy = this->create_subscription<example_infs::msg::Uhuy>("example_msg/uhuy", 10, std::bind(&ListenerServerCpp::uhuy_callback, this, _1));
+
+      server_print = this->create_service<example_infs::srv::Print>("example_srv/print", std::bind(&ListenerServerCpp::print_callback, this, _1, _2));
 
       timer = this->create_wall_timer(500ms, std::bind(&ListenerServerCpp::timer_callback, this));
 
-      /*
-      placeholder!
-      topic_callback() <- topic_callback(x,y)
-      std::bind(topic_callback(), this, _1, _2)
-      */
     }
 
   private:
@@ -44,10 +42,10 @@ class ListenerServerCpp : public rclcpp::Node {
     // define subscriber variable
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr sub_msgs;
     
-    rclcpp::Subscription<example_msgs::msg::Uhuy>::SharedPtr sub_uhuy;
+    rclcpp::Subscription<example_infs::msg::Uhuy>::SharedPtr sub_uhuy;
 
     // define server variable
-    rclcpp::Service<example_msgs::srv::Print>::SharedPtr server_print;
+    rclcpp::Service<example_infs::srv::Print>::SharedPtr server_print;
 
     rclcpp::TimerBase::SharedPtr timer;
 
@@ -67,14 +65,14 @@ class ListenerServerCpp : public rclcpp::Node {
       message = msg->data;
     }
 
-    void uhuy_callback(const example_msgs::msg::Uhuy::SharedPtr msg) {
+    void uhuy_callback(const example_infs::msg::Uhuy::SharedPtr msg) {
       uhuy_msg = msg->uhuy;
       uhuy_command = msg->command;
     }
 
     
-    void print(const example_msgs::srv::Print::Request::SharedPtr request, 
-                example_msgs::srv::Print::Response::SharedPtr response) {
+    void print_callback(const example_infs::srv::Print::Request::SharedPtr request, 
+                example_infs::srv::Print::Response::SharedPtr response) {
       if (request->command == "PRINT") {
         print_continous = true;
         response->success = true;
@@ -95,7 +93,6 @@ class ListenerServerCpp : public rclcpp::Node {
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Initiating listener and server...");
   rclcpp::spin(std::make_shared<ListenerServerCpp>());
   rclcpp::shutdown();
   return 0;

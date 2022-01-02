@@ -6,8 +6,8 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
-#include "example_msgs/srv/print.hpp"
-#include "example_msgs/msg/uhuy.hpp"
+#include "example_infs/srv/print.hpp"
+#include "example_infs/msg/uhuy.hpp"
 
 using namespace std::chrono_literals;
 
@@ -21,19 +21,21 @@ class TalkerClientCpp : public rclcpp::Node {
   public:
     // CONSTRUCTOR //
     TalkerClientCpp() : Node("talker_client_cpp") {
-      // publisher
-      pub_msgs = this->create_publisher<std_msgs::msg::String>("example_msgs/msgs", 10);
 
-      pub_uhuy = this->create_publisher<example_msgs::msg::Uhuy>("example_msgs/uhuy", 10);
+      RCLCPP_INFO(this->get_logger(), "Initiating talker and client...");
+      // publisher
+      pub_msgs = this->create_publisher<std_msgs::msg::String>("example_msg/msgs", 10);
+
+      pub_uhuy = this->create_publisher<example_infs::msg::Uhuy>("example_msg/uhuy", 10);
 
       // timer
       timer = this->create_wall_timer(500ms, std::bind(&TalkerClientCpp::timer_callback, this));
 
       // client
-      cli_print = this->create_client<example_msgs::srv::Print>("example_srv/print");
+      cli_print = this->create_client<example_infs::srv::Print>("example_srv/print");
 
       // parameters
-      this->declare_parameter<std::string>("example_param/Input");
+      this->declare_parameter<std::string>("example_param/input", "STOP");
 
       TalkerClientCpp::service_check();
 
@@ -51,20 +53,20 @@ class TalkerClientCpp : public rclcpp::Node {
     // create publisher object
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_msgs;
 
-    rclcpp::Publisher<example_msgs::msg::Uhuy>::SharedPtr pub_uhuy;
+    rclcpp::Publisher<example_infs::msg::Uhuy>::SharedPtr pub_uhuy;
 
     // create service client object
-    rclcpp::Client<example_msgs::srv::Print>::SharedPtr cli_print;
+    rclcpp::Client<example_infs::srv::Print>::SharedPtr cli_print;
 
     // basically void loop in arduino, but more e p i c
     void timer_callback() {
-      this->get_parameter("example_param/Input", param_msgs);
+      this->get_parameter("example_param/input", param_msgs);
 
       auto msg = std_msgs::msg::String();
       msg.data = "Halo dunia!";
       pub_msgs->publish(msg);
 
-      auto uhuy_msg = example_msgs::msg::Uhuy();
+      auto uhuy_msg = example_infs::msg::Uhuy();
       uhuy_msg.uhuy = "UHUY";
       uhuy_msg.command = "PRINT";
       pub_uhuy->publish(uhuy_msg);
@@ -88,7 +90,7 @@ class TalkerClientCpp : public rclcpp::Node {
 
       if (new_print != old_print) {
 
-        auto request = std::make_shared<example_msgs::srv::Print::Request>();
+        auto request = std::make_shared<example_infs::srv::Print::Request>();
         request->command = input; 
 
         cli_print->async_send_request(request, std::bind(&TalkerClientCpp::future_callback, this, _1));  // with a callback function
@@ -97,8 +99,8 @@ class TalkerClientCpp : public rclcpp::Node {
  
     }
 
-    void future_callback(const rclcpp::Client<example_msgs::srv::Print>::SharedFuture future) {
-      std::shared_ptr<example_msgs::srv::Print::Response> result = future.get();
+    void future_callback(const rclcpp::Client<example_infs::srv::Print>::SharedFuture future) {
+      std::shared_ptr<example_infs::srv::Print::Response> result = future.get();
       RCLCPP_INFO(this->get_logger(), "Service call responded with %s", result->success ? "true" : "false");
 
       /* this function could return the other than void type. Interesting for future reference */
@@ -111,7 +113,6 @@ class TalkerClientCpp : public rclcpp::Node {
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Initiating talker and client...");
   rclcpp::spin(std::make_shared<TalkerClientCpp>());
   rclcpp::shutdown();
   return 0;
