@@ -19,6 +19,7 @@ using std::placeholders::_1;
 class TalkerClientCpp : public rclcpp::Node {
 
   public:
+  
     // CONSTRUCTOR //
     TalkerClientCpp() : Node("talker_client_cpp") {
 
