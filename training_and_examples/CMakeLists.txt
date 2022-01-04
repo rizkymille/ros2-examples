@@ -28,15 +28,14 @@ find_package(example_infs REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 # Add include directory
-#include_directories(include)
+include_directories(include)
 
 # Create Cpp library from header
-# set(HEADER_FILES include/the_library/lib_header.hpp)
-#add_library(Header SHARED src/Header.cpp)
-#ament_target_dependencies(Header 
-#  rclcpp
-#  std_msgs
-#  example_infs)
+add_library(Header SHARED src/Header.cpp)
+ament_target_dependencies(Header 
+  rclcpp
+  std_msgs
+  example_infs)
 
 
 # Create Cpp executable
@@ -54,13 +53,12 @@ ament_target_dependencies(talker_client_cpp
   std_msgs
   example_infs)
 
-#add_executable(using_lib 
-#  src/using_lib.cpp)
-#target_link_libraries(using_lib 
-#  Header)
-#ament_target_dependencies(using_lib 
-#  rclcpp
-#  std_msgs)
+add_executable(using_lib_cpp 
+  src/using_lib.cpp)
+target_link_libraries(using_lib_cpp
+  Header)
+ament_target_dependencies(using_lib_cpp 
+  rclcpp)
 
 #############
 ## TESTING ##
@@ -81,32 +79,32 @@ endif()
 ## INSTALL ##
 #############
 
-# Install Cpp executables
-install(TARGETS
-  listener_server_cpp
-  talker_client_cpp
-  DESTINATION lib/${PROJECT_NAME}
-)
-
 # Install launch file
 install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}
 )
 
 # Install header files
-#install(
-#  DIRECTORY include/${PROJECT_NAME}
-#  DESTINATION include
-#)
+install(
+  DIRECTORY include/${PROJECT_NAME}
+  DESTINATION include
+)
 
 ## Install and export library
-#install(TARGETS 
-#  Header
-#  LIBRARY DESTINATION lib
-#  ARCHIVE DESTINATION lib
-#  RUNTIME DESTINATION bin
-#)
+install(TARGETS 
+  Header
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
+)
 
+# Install Cpp executables
+install(TARGETS
+  listener_server_cpp
+  talker_client_cpp
+  using_lib_cpp
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 # Install Python modules
 # ament_python_install_package(scripts)

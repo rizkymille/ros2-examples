@@ -4,6 +4,8 @@
 #include <string>
 #include <memory>
 #include <chrono>
+#include <functional>
+#include <cstdlib>
 
 #include "rclcpp/rclcpp.hpp"
 
@@ -11,28 +13,33 @@
 #include "example_infs/msg/uhuy.hpp"
 #include "example_infs/srv/print.hpp"
 
+using namespace std::chrono_literals;
+
 using std::placeholders::_1;
 using std::placeholders::_2;
 
-class Header : public rclcpp::Node {
+class Header {
   public:
-    Header(rclcpp::Node::SharedPtr node);
+
+    Header(rclcpp::Node::SharedPtr node); // CONSTRUCTOR
     ~Header(); // DESTRUCTOR
 
     // API
     void print_uhuy();
     void publish_msg();
-    void pubish_uhuy();
+    void publish_uhuy();
+
+    
     
   private:
+
+    rclcpp::Node::SharedPtr node_;
 
     std::string param_msgs;
     std::string message;
     std::string uhuy_msg, uhuy_command;
 
     bool print_continous = false;
-
-    std::shared_ptr<rclcpp::Node> node_;
 
     // create publisher object
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_msgs;

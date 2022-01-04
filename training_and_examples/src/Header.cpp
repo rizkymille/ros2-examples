@@ -2,34 +2,35 @@
 
 // CONSTRUCTOR //
 Header::Header(rclcpp::Node::SharedPtr node) : node_(node) {
-
+  
   // publisher
   pub_msgs = node_->create_publisher<std_msgs::msg::String>("example_msg/msgs", 10);
 
   pub_uhuy = node_->create_publisher<example_infs::msg::Uhuy>("example_msg/uhuy", 10);
 
   // subscriber
-  sub_msgs = node_->create_subscription<std_msgs::msg::String>("example_msg/msgs", 10, std::bind(&Header::topic_callback, node_, _1));
+  sub_msgs = node_->create_subscription<std_msgs::msg::String>("example_msg/msgs", 10, std::bind(&Header::topic_callback, this, _1));
       
-  sub_uhuy = node_->create_subscription<example_infs::msg::Uhuy>("example_msg/uhuy", 10, std::bind(&Header::uhuy_callback, node_, _1));
+  sub_uhuy = node_->create_subscription<example_infs::msg::Uhuy>("example_msg/uhuy", 10, std::bind(&Header::uhuy_callback, this, _1));
 
   // server
-  server_print = node_->create_service<example_infs::srv::Print>("example_srv/print", std::bind(&Header::print_callback, node_, _1, _2));
+  server_print = node_->create_service<example_infs::srv::Print>("example_srv/print", std::bind(&Header::print_callback, this, _1, _2));
 
   // client
   cli_print = node_->create_client<example_infs::srv::Print>("example_srv/print");
 
   // parameters
-  node_->declare_parameter<std::string>("example_param/Input");
+  node_->declare_parameter<std::string>("example_param/Input", "PRINT");
 
   Header::service_check();
   Header::get_param();
 }
 
 // DESTRUCTOR //
-~Header::Header() {}
+Header::~Header() {}
 
 // APIs //
+// Private
 void Header::service_check() {
   while (!cli_print->wait_for_service(1s)) {
     if (!rclcpp::ok()) {
@@ -45,6 +46,7 @@ void Header::get_param() {
   node_->get_parameter("example_param/Input", param_msgs);
 }
 
+// Public
 void Header::print_uhuy() {
   if (print_continous) {
     RCLCPP_INFO(node_->get_logger(), "%s", message.c_str());
