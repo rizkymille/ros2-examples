@@ -107,12 +107,13 @@ install(TARGETS
 )
 
 # Install Python modules
-# ament_python_install_package(scripts)
+ament_python_install_package(module)
 
 # Install Python executables
 install(PROGRAMS
   scripts/listener_server.py 
   scripts/talker_client.py
+  scripts/using_lib.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
