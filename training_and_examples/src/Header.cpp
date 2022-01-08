@@ -1,7 +1,7 @@
 #include "training_and_examples/Header.hpp"
 
 // CONSTRUCTOR //
-Header::Header(rclcpp::Node::SharedPtr node) : node_(node) {
+Header::Header(const rclcpp::Node::SharedPtr node) : node_(node) {
   
   // publisher
   pub_msgs = node_->create_publisher<std_msgs::msg::String>("example_msg/msgs", 10);
@@ -20,17 +20,15 @@ Header::Header(rclcpp::Node::SharedPtr node) : node_(node) {
   cli_print = node_->create_client<example_infs::srv::Print>("example_srv/print");
 
   // parameters
-  node_->declare_parameter<std::string>("example_param/Input", "PRINT");
+  node_->declare_parameter<std::string>("example_param/input", "PRINT");
 
-  Header::service_check();
-  Header::get_param();
 }
 
 // DESTRUCTOR //
 Header::~Header() {}
 
 // APIs //
-// Private
+// Public
 void Header::service_check() {
   while (!cli_print->wait_for_service(1s)) {
     if (!rclcpp::ok()) {
@@ -43,10 +41,9 @@ void Header::service_check() {
 }
 
 void Header::get_param() {
-  node_->get_parameter("example_param/Input", param_msgs);
+  node_->get_parameter("example_param/input", param_msgs);
 }
 
-// Public
 void Header::print_uhuy() {
   if (print_continous) {
     RCLCPP_INFO(node_->get_logger(), "%s", message.c_str());
@@ -68,6 +65,20 @@ void Header::publish_uhuy() {
   uhuy_msg.uhuy = "UHUY";
   uhuy_msg.command = "PRINT";
   pub_uhuy->publish(uhuy_msg);
+}
+
+void Header::request_print(const std::string& input) {
+  std::string new_print = input;
+
+  if (new_print != old_print) {
+
+    auto request = std::make_shared<example_infs::srv::Print::Request>();
+    request->command = input; 
+
+    cli_print->async_send_request(request, std::bind(&Header::future_callback, this, _1));  // with a callback function
+    old_print = input;
+  } 
+
 }
 
 // CALLBACKS //

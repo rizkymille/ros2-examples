@@ -20,23 +20,23 @@ using std::placeholders::_2;
 
 class Header {
   public:
-
-    Header(rclcpp::Node::SharedPtr node); // CONSTRUCTOR
+    Header(const rclcpp::Node::SharedPtr node); // CONSTRUCTOR
     ~Header(); // DESTRUCTOR
+
+    std::string param_msgs;
 
     // API
     void print_uhuy();
     void publish_msg();
     void publish_uhuy();
+    void get_param();
+    void service_check();
+    void request_print(const std::string& input);
 
-    
-    
   private:
-
     rclcpp::Node::SharedPtr node_;
 
-    std::string param_msgs;
-    std::string message;
+    std::string message, old_print;
     std::string uhuy_msg, uhuy_command;
 
     bool print_continous = false;
@@ -63,10 +63,6 @@ class Header {
 
     void print_callback(const example_infs::srv::Print::Request::SharedPtr request, 
                 example_infs::srv::Print::Response::SharedPtr response);
-
-    void service_check();
-
-    void get_param();
 
 };
 
