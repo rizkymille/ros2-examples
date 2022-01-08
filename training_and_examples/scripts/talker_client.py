@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 
 import rclpy
-from rclpy import publisher
 from rclpy.node import Node
-import asyncio
 
 from example_infs.msg import Uhuy
 from example_infs.srv import Print
-from rclpy.task import Future
 from std_msgs.msg import String
 
 
@@ -61,16 +58,13 @@ class TalkerClientPython(Node):
       request.command = input
 
       future = self.cli_print.call_async(request)
-      #self.get_logger().info('udah request gan')
 
       def client_callback(_future):
         result = future.result()
         self.get_logger().info('Service call responded with ' + str(result.success))
         self.old_print = input
 
-      future.add_done_callback(client_callback)
-      #self.old_print = input
-      
+      future.add_done_callback(client_callback)      
 
 
 def main(args=None):
