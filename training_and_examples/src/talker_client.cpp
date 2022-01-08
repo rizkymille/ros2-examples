@@ -38,7 +38,7 @@ class TalkerClientCpp : public rclcpp::Node {
       // parameters
       this->declare_parameter<std::string>("example_param/input", "STOP");
 
-      TalkerClientCpp::service_check();
+      TalkerClientCpp::service_check(); // check if service server online
 
     }
 
@@ -104,7 +104,7 @@ class TalkerClientCpp : public rclcpp::Node {
       std::shared_ptr<example_infs::srv::Print::Response> result = future.get();
       RCLCPP_INFO(this->get_logger(), "Service call responded with %s", result->success ? "true" : "false");
 
-      /* this function could return the other than void type. Interesting for future reference */
+      // this function could return the other than void type. might be good for future reference
       // return true;
       // return false if something goes wrong
     }
