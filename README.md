@@ -32,6 +32,5 @@ In terms of header files, write the function body in `.cpp` file. But when using
 
 
 ## TODO
-- Create C++ action example
 - Create python action example
 
