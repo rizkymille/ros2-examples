@@ -14,6 +14,7 @@ endif()
 # C++ dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
 
 # Python dependencies
 find_package(ament_cmake_python REQUIRED)
@@ -43,6 +44,7 @@ add_executable(listener_server_cpp
   src/listener_server.cpp)
 ament_target_dependencies(listener_server_cpp 
   rclcpp
+  rclcpp_action
   std_msgs
   example_infs)
 
@@ -50,6 +52,7 @@ add_executable(talker_client_cpp
   src/talker_client.cpp)
 ament_target_dependencies(talker_client_cpp 
   rclcpp
+  rclcpp_action
   std_msgs
   example_infs)
 

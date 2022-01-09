@@ -5,16 +5,20 @@
 #include <cstdlib>
 
 #include "rclcpp/rclcpp.hpp"
+#include "rclcpp_action/rclcpp_action.hpp"
+
 #include "std_msgs/msg/string.hpp"
 #include "example_infs/srv/print.hpp"
 #include "example_infs/msg/uhuy.hpp"
+#include "example_infs/action/bruh.hpp"
 
 using namespace std::chrono_literals;
 
 using std::placeholders::_1;
+using std::placeholders::_2;
 
-/* This example creates a subclass of Node and uses std::bind() to register a
-* member function as a callback from the timer. */
+using Bruh = example_infs::action::Bruh;
+using GoalHandleBruh = rclcpp_action::ClientGoalHandle<Bruh>;
 
 class TalkerClientCpp : public rclcpp::Node {
 
@@ -32,11 +36,16 @@ class TalkerClientCpp : public rclcpp::Node {
       // timer
       timer = this->create_wall_timer(500ms, std::bind(&TalkerClientCpp::timer_callback, this));
 
-      // client
+      // service client
       cli_print = this->create_client<example_infs::srv::Print>("example_srv/print");
+
+      // action client
+      cli_act_bruh = rclcpp_action::create_client<Bruh>(this, "example_act/bruh");
 
       // parameters
       this->declare_parameter<std::string>("example_param/input", "STOP");
+
+      this->declare_parameter<int>("example_param/bruh", 0);
 
       TalkerClientCpp::service_check(); // check if service server online
 
@@ -44,24 +53,28 @@ class TalkerClientCpp : public rclcpp::Node {
 
   private:
     
-    std::string old_print;
+    std::string old_print, param_msgs;
 
-    std::string param_msgs;
+    int old_bruh, count_bruh;
 
-    // create timer object
+    // create timer variable
     rclcpp::TimerBase::SharedPtr timer;
 
-    // create publisher object
+    // create publisher variable
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_msgs;
 
     rclcpp::Publisher<example_infs::msg::Uhuy>::SharedPtr pub_uhuy;
 
-    // create service client object
+    // create service client variable
     rclcpp::Client<example_infs::srv::Print>::SharedPtr cli_print;
+
+    // create action client variable
+    rclcpp_action::Client<Bruh>::SharedPtr cli_act_bruh;
 
     // basically void loop in arduino, but more e p i c
     void timer_callback() {
       this->get_parameter("example_param/input", param_msgs);
+      this->get_parameter("example_param/bruh", count_bruh);
 
       auto msg = std_msgs::msg::String();
       msg.data = "Halo dunia!";
@@ -73,23 +86,27 @@ class TalkerClientCpp : public rclcpp::Node {
       pub_uhuy->publish(uhuy_msg);
 
       request_print(param_msgs);
+      send_goal(count_bruh);
     }
 
     // make sure all service online (in the beginning only, cause wait_for_service will mess granularity)
     void service_check() {
       while (!cli_print->wait_for_service(1s)) {
         if (!rclcpp::ok()) {
-          RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for the service. Exiting.");
+          RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for the service. Exiting");
           return;
         }
-        RCLCPP_INFO(this->get_logger(), "Service not available, waiting...");
+        RCLCPP_WARN(this->get_logger(), "Service not available, waiting...");
+
+        if (!cli_act_bruh->wait_for_action_server(1s)) {
+          RCLCPP_WARN(this->get_logger(), "Action not available, waiting...");
+        }
       }
     }
  
     void request_print(const std::string& input) {
-      std::string new_print = input;
 
-      if (new_print != old_print) {
+      if (input != old_print) {
 
         auto request = std::make_shared<example_infs::srv::Print::Request>();
         request->command = input; 
@@ -107,6 +124,62 @@ class TalkerClientCpp : public rclcpp::Node {
       // this function could return the other than void type. might be good for future reference
       // return true;
       // return false if something goes wrong
+    }
+
+    // ACTION FUNCTIONS
+    void send_goal(const int& _count_bruh) {
+
+      if ((old_bruh != _count_bruh) && (_count_bruh > 0)) {
+        auto goal_msg = Bruh::Goal();
+        goal_msg.count = _count_bruh;
+
+        RCLCPP_INFO(this->get_logger(), "Sending goal");
+
+        auto send_goal_options = rclcpp_action::Client<Bruh>::SendGoalOptions();
+        send_goal_options.goal_response_callback = std::bind(&TalkerClientCpp::goal_response_callback, this, _1);
+        send_goal_options.feedback_callback = std::bind(&TalkerClientCpp::feedback_callback, this, _1, _2);
+        send_goal_options.result_callback = std::bind(&TalkerClientCpp::result_callback, this, _1);
+        
+        cli_act_bruh->async_send_goal(goal_msg, send_goal_options);
+        old_bruh = _count_bruh;
+      }
+      
+    }
+
+    // ACTION CALLBACKS
+    void goal_response_callback(std::shared_future<GoalHandleBruh::SharedPtr> future) {
+      auto goal_handle = future.get();
+      if (!goal_handle) {
+        RCLCPP_ERROR(this->get_logger(), "Goal was rejected by server");
+      } 
+      else {
+        RCLCPP_INFO(this->get_logger(), "Goal accepted by server, waiting for result");
+      }
+    }
+
+    void feedback_callback(
+      GoalHandleBruh::SharedPtr,
+      const std::shared_ptr<const Bruh::Feedback> feedback) {
+
+      RCLCPP_INFO(this->get_logger(), feedback->bruh.c_str());
+    }
+
+    void result_callback(const GoalHandleBruh::WrappedResult& result) {
+      switch (result.code) {
+        case rclcpp_action::ResultCode::SUCCEEDED:
+          break;
+        case rclcpp_action::ResultCode::ABORTED:
+          RCLCPP_ERROR(this->get_logger(), "Goal was aborted");
+          return;
+        case rclcpp_action::ResultCode::CANCELED:
+          RCLCPP_ERROR(this->get_logger(), "Goal was canceled");
+          return;
+        default:
+          RCLCPP_ERROR(this->get_logger(), "Unknown result code");
+          return;
+      }
+
+      RCLCPP_INFO(this->get_logger(), "Service call responded with %s", result.result->status ? "true" : "false");
     }
 
 };
