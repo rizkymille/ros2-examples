@@ -4,17 +4,17 @@
 Header::Header(const rclcpp::Node::SharedPtr node) : node_(node) {
   
   // publisher
-  pub_msgs = node_->create_publisher<std_msgs::msg::String>("example_msg/msgs", 10);
+  pub_message = node_->create_publisher<std_msgs::msg::String>("example_msg/message", 10);
 
   pub_uhuy = node_->create_publisher<example_infs::msg::Uhuy>("example_msg/uhuy", 10);
 
   // subscriber
-  sub_msgs = node_->create_subscription<std_msgs::msg::String>("example_msg/msgs", 10, std::bind(&Header::topic_callback, this, _1));
+  sub_message = node_->create_subscription<std_msgs::msg::String>("example_msg/message", 10, std::bind(&Header::callback_msg_msgs, this, _1));
       
-  sub_uhuy = node_->create_subscription<example_infs::msg::Uhuy>("example_msg/uhuy", 10, std::bind(&Header::uhuy_callback, this, _1));
+  sub_uhuy = node_->create_subscription<example_infs::msg::Uhuy>("example_msg/uhuy", 10, std::bind(&Header::callback_msg_uhuy, this, _1));
 
   // server
-  server_print = node_->create_service<example_infs::srv::Print>("example_srv/print", std::bind(&Header::print_callback, this, _1, _2));
+  ser_print = node_->create_service<example_infs::srv::Print>("example_srv/print", std::bind(&Header::callback_srv_print, this, _1, _2));
 
   // client
   cli_print = node_->create_client<example_infs::srv::Print>("example_srv/print");
@@ -41,12 +41,12 @@ void Header::service_check() {
 }
 
 void Header::get_param() {
-  node_->get_parameter("example_param/input", param_msgs);
+  node_->get_parameter("example_param/input", param_msg);
 }
 
 void Header::print_uhuy() {
   if (print_continous) {
-    RCLCPP_INFO(node_->get_logger(), "%s", message.c_str());
+    RCLCPP_INFO(node_->get_logger(), "%s", message_msg.c_str());
   }
 
   if(uhuy_command == "PRINT") {
@@ -57,7 +57,7 @@ void Header::print_uhuy() {
 void Header::publish_msg() {
   auto msg = std_msgs::msg::String();
   msg.data = "Halo dunia!";
-  pub_msgs->publish(msg);
+  pub_message->publish(msg);
 }
 
 void Header::publish_uhuy() {
@@ -75,28 +75,28 @@ void Header::request_print(const std::string& input) {
     auto request = std::make_shared<example_infs::srv::Print::Request>();
     request->command = input; 
 
-    cli_print->async_send_request(request, std::bind(&Header::future_callback, this, _1));  // with a callback function
+    cli_print->async_send_request(request, std::bind(&Header::callback_fut_print, this, _1));  // with a callback function
     old_print = input;
   } 
 
 }
 
 // CALLBACKS //
-void Header::future_callback(const rclcpp::Client<example_infs::srv::Print>::SharedFuture future) {
+void Header::callback_fut_print(const rclcpp::Client<example_infs::srv::Print>::SharedFuture future) {
   std::shared_ptr<example_infs::srv::Print::Response> result = future.get();
   RCLCPP_INFO(node_->get_logger(), "Service call responded with %s", result->success ? "true" : "false");
 }
 
-void Header::topic_callback(const std_msgs::msg::String::SharedPtr msg) {
-  message = msg->data;
+void Header::callback_msg_msgs(const std_msgs::msg::String::SharedPtr msg) {
+  message_msg = msg->data;
 }
 
-void Header::uhuy_callback(const example_infs::msg::Uhuy::SharedPtr msg) {
+void Header::callback_msg_uhuy(const example_infs::msg::Uhuy::SharedPtr msg) {
   uhuy_msg = msg->uhuy;
   uhuy_command = msg->command;
 }
 
-void Header::print_callback(const example_infs::srv::Print::Request::SharedPtr request, 
+void Header::callback_srv_print(const example_infs::srv::Print::Request::SharedPtr request, 
                 example_infs::srv::Print::Response::SharedPtr response) {
   if (request->command == "PRINT") {
     print_continous = true;

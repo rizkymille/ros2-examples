@@ -1,5 +1,5 @@
-#ifndef HEADER
-#define HEADER
+#ifndef HEADER_HPP_
+#define HEADER_HPP_
 
 #include <string>
 #include <memory>
@@ -23,7 +23,7 @@ class Header {
     Header(const rclcpp::Node::SharedPtr node); // CONSTRUCTOR
     ~Header(); // DESTRUCTOR
 
-    std::string param_msgs;
+    std::string param_msg;
 
     // API
     void print_uhuy();
@@ -36,34 +36,34 @@ class Header {
   private:
     rclcpp::Node::SharedPtr node_;
 
-    std::string message, old_print;
+    std::string message_msg, old_print;
     std::string uhuy_msg, uhuy_command;
 
     bool print_continous = false;
 
     // create publisher object
-    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_msgs;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_message;
     rclcpp::Publisher<example_infs::msg::Uhuy>::SharedPtr pub_uhuy;
 
     // create subscriber object
-    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr sub_msgs;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr sub_message;
     rclcpp::Subscription<example_infs::msg::Uhuy>::SharedPtr sub_uhuy;
 
     // create service client object
     rclcpp::Client<example_infs::srv::Print>::SharedPtr cli_print;
 
     // create service server object
-    rclcpp::Service<example_infs::srv::Print>::SharedPtr server_print;
+    rclcpp::Service<example_infs::srv::Print>::SharedPtr ser_print;
 
-    void future_callback(const rclcpp::Client<example_infs::srv::Print>::SharedFuture future);
+    void callback_fut_print(const rclcpp::Client<example_infs::srv::Print>::SharedFuture future);
 
-    void topic_callback(const std_msgs::msg::String::SharedPtr msg);
+    void callback_msg_msgs(const std_msgs::msg::String::SharedPtr msg);
 
-    void uhuy_callback(const example_infs::msg::Uhuy::SharedPtr msg);
+    void callback_msg_uhuy(const example_infs::msg::Uhuy::SharedPtr msg);
 
-    void print_callback(const example_infs::srv::Print::Request::SharedPtr request, 
+    void callback_srv_print(const example_infs::srv::Print::Request::SharedPtr request, 
                 example_infs::srv::Print::Response::SharedPtr response);
 
 };
 
-#endif // HEADER
+#endif // HEADER_HPP_

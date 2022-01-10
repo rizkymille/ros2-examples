@@ -27,28 +27,28 @@ class ListenerServerCpp : public rclcpp::Node {
       RCLCPP_INFO(this->get_logger(), "Initiating listener and server...");
 
       // subscriber
-      sub_msgs = this->create_subscription<std_msgs::msg::String>("example_msg/msgs", 10, std::bind(&ListenerServerCpp::topic_callback, this, _1));
-      sub_uhuy = this->create_subscription<example_infs::msg::Uhuy>("example_msg/uhuy", 10, std::bind(&ListenerServerCpp::uhuy_callback, this, _1));
+      sub_message = this->create_subscription<std_msgs::msg::String>("example_msg/message", 10, std::bind(&ListenerServerCpp::callback_msg_msgs, this, _1));
+      sub_uhuy = this->create_subscription<example_infs::msg::Uhuy>("example_msg/uhuy", 10, std::bind(&ListenerServerCpp::callback_msg_uhuy, this, _1));
 
       // service server
-      server_print = this->create_service<example_infs::srv::Print>("example_srv/print", std::bind(&ListenerServerCpp::print_callback, this, _1, _2));
+      ser_print = this->create_service<example_infs::srv::Print>("example_srv/print", std::bind(&ListenerServerCpp::callback_srv_print, this, _1, _2));
       
       // action server
-      srv_act_bruh = rclcpp_action::create_server<Bruh>(
+      ser_act_bruh = rclcpp_action::create_server<Bruh>(
         this,
         "example_act/bruh",
-        std::bind(&ListenerServerCpp::handle_goal, this, _1, _2),
-        std::bind(&ListenerServerCpp::handle_cancel, this, _1),
-        std::bind(&ListenerServerCpp::handle_accepted, this, _1));
+        std::bind(&ListenerServerCpp::handle_goal_bruh, this, _1, _2),
+        std::bind(&ListenerServerCpp::handle_cancel_bruh, this, _1),
+        std::bind(&ListenerServerCpp::handle_accepted_bruh, this, _1));
 
       // timer
-      timer = this->create_wall_timer(500ms, std::bind(&ListenerServerCpp::timer_callback, this));
+      timer = this->create_wall_timer(500ms, std::bind(&ListenerServerCpp::timer_loop, this));
 
     }
 
   private:
 
-    std::string message;
+    std::string message_msg;
 
     std::string uhuy_msg, uhuy_command;
 
@@ -58,28 +58,28 @@ class ListenerServerCpp : public rclcpp::Node {
     int count, i;
 
     // define subscriber variable
-    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr sub_msgs;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr sub_message;
     
     rclcpp::Subscription<example_infs::msg::Uhuy>::SharedPtr sub_uhuy;
 
     // define server variable
-    rclcpp::Service<example_infs::srv::Print>::SharedPtr server_print;
+    rclcpp::Service<example_infs::srv::Print>::SharedPtr ser_print;
 
     // define action server variables
-    rclcpp_action::Server<Bruh>::SharedPtr srv_act_bruh;
+    rclcpp_action::Server<Bruh>::SharedPtr ser_act_bruh;
     /*
     Single executor style variables
     */
     std::shared_ptr<Bruh::Feedback> feedback = std::make_shared<Bruh::Feedback>();
     std::shared_ptr<Bruh::Result> result = std::make_shared<Bruh::Result>();
-    std::shared_ptr<GoalHandleBruh> goal_h; 
+    std::shared_ptr<GoalHandleBruh> goal_handle_bruh; 
 
     // define timer variable
     rclcpp::TimerBase::SharedPtr timer;
 
-    void timer_callback() {
+    void timer_loop() {
       if (print_continous) {
-        RCLCPP_INFO(this->get_logger(), "%s", message.c_str());
+        RCLCPP_INFO(this->get_logger(), "%s", message_msg.c_str());
       }
 
       if(uhuy_command == "PRINT") {
@@ -94,17 +94,17 @@ class ListenerServerCpp : public rclcpp::Node {
       }
     }
 
-    void topic_callback(const std_msgs::msg::String::SharedPtr msg) {
-      message = msg->data;
+    void callback_msg_msgs(const std_msgs::msg::String::SharedPtr msg) {
+      message_msg = msg->data;
     }
 
-    void uhuy_callback(const example_infs::msg::Uhuy::SharedPtr msg) {
+    void callback_msg_uhuy(const example_infs::msg::Uhuy::SharedPtr msg) {
       uhuy_msg = msg->uhuy;
       uhuy_command = msg->command;
     }
 
     
-    void print_callback(const example_infs::srv::Print::Request::SharedPtr request, 
+    void callback_srv_print(const example_infs::srv::Print::Request::SharedPtr request, 
                 example_infs::srv::Print::Response::SharedPtr response) {
       if (request->command == "PRINT") {
         print_continous = true;
@@ -121,7 +121,7 @@ class ListenerServerCpp : public rclcpp::Node {
     }
 
     // ACTION HANDLERS
-    rclcpp_action::GoalResponse handle_goal(const rclcpp_action::GoalUUID& uuid,
+    rclcpp_action::GoalResponse handle_goal_bruh(const rclcpp_action::GoalUUID& uuid,
             std::shared_ptr<const Bruh::Goal> goal) {
         
       RCLCPP_INFO(this->get_logger(), "Received goal request with order %d", goal->count);
@@ -138,20 +138,20 @@ class ListenerServerCpp : public rclcpp::Node {
       }
     }
 
-    rclcpp_action::CancelResponse handle_cancel(const std::shared_ptr<GoalHandleBruh> goal_handle) {
+    rclcpp_action::CancelResponse handle_cancel_bruh(const std::shared_ptr<GoalHandleBruh> goal_handle) {
       
       RCLCPP_INFO(this->get_logger(), "Received request to cancel goal");
 
-      goal_h = goal_handle; // pass the goal_handle. Single executor style
+      goal_handle_bruh = goal_handle; // pass the goal_handle. Single executor style
       // (void) goal_handle; // complier error avoidance (unused parameter error) Multiexecutor style
       
       return rclcpp_action::CancelResponse::ACCEPT;
     }
 
-    void handle_accepted(const std::shared_ptr<GoalHandleBruh> goal_handle) {
+    void handle_accepted_bruh(const std::shared_ptr<GoalHandleBruh> goal_handle) {
       
       // Single executor style
-      goal_h = goal_handle;
+      goal_handle_bruh = goal_handle;
 
       handler_execute = true;
 
@@ -171,10 +171,10 @@ class ListenerServerCpp : public rclcpp::Node {
 
     void handle_executor() {
       // Check if there is a cancel request
-      if (goal_h->is_canceling()) {
+      if (goal_handle_bruh->is_canceling()) {
         RCLCPP_INFO(this->get_logger(), "Goal Canceled");
         result->status = false;
-        goal_h->canceled(result);
+        goal_handle_bruh->canceled(result);
         handler_execute = false;
         return;
       }
@@ -182,7 +182,7 @@ class ListenerServerCpp : public rclcpp::Node {
       // Check if goal is done
       if (i == count) {
         result->status = true;
-        goal_h->succeed(result);
+        goal_handle_bruh->succeed(result);
         RCLCPP_INFO(this->get_logger(), "Goal Succeeded");
         handler_execute = false;
         return;
@@ -190,7 +190,7 @@ class ListenerServerCpp : public rclcpp::Node {
 
       // Publish feedback
       feedback->bruh = "BRUH " + std::to_string(i);
-      goal_h->publish_feedback(feedback);
+      goal_handle_bruh->publish_feedback(feedback);
 
       RCLCPP_INFO(this->get_logger(), "Publish Feedback");
 

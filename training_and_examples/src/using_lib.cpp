@@ -51,7 +51,7 @@ class UsingLibCpp : public rclcpp::Node { // , public Header // use this if regu
       header->publish_msg();
       header->publish_uhuy();
       header->print_uhuy();
-      header->request_print(header->param_msgs);
+      header->request_print(header->param_msg);
     }
 };
 

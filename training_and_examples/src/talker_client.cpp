@@ -29,12 +29,12 @@ class TalkerClientCpp : public rclcpp::Node {
 
       RCLCPP_INFO(this->get_logger(), "Initiating talker and client...");
       // publisher
-      pub_msgs = this->create_publisher<std_msgs::msg::String>("example_msg/msgs", 10);
+      pub_message = this->create_publisher<std_msgs::msg::String>("example_msg/message", 10);
 
       pub_uhuy = this->create_publisher<example_infs::msg::Uhuy>("example_msg/uhuy", 10);
 
       // timer
-      timer = this->create_wall_timer(500ms, std::bind(&TalkerClientCpp::timer_callback, this));
+      timer = this->create_wall_timer(500ms, std::bind(&TalkerClientCpp::timer_loop, this));
 
       // service client
       cli_print = this->create_client<example_infs::srv::Print>("example_srv/print");
@@ -53,7 +53,7 @@ class TalkerClientCpp : public rclcpp::Node {
 
   private:
     
-    std::string old_print, param_msgs;
+    std::string old_print, param_msg;
 
     int old_bruh, count_bruh;
 
@@ -61,7 +61,7 @@ class TalkerClientCpp : public rclcpp::Node {
     rclcpp::TimerBase::SharedPtr timer;
 
     // create publisher variable
-    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_msgs;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_message;
 
     rclcpp::Publisher<example_infs::msg::Uhuy>::SharedPtr pub_uhuy;
 
@@ -72,20 +72,20 @@ class TalkerClientCpp : public rclcpp::Node {
     rclcpp_action::Client<Bruh>::SharedPtr cli_act_bruh;
 
     // basically void loop in arduino, but more e p i c
-    void timer_callback() {
-      this->get_parameter("example_param/input", param_msgs);
+    void timer_loop() {
+      this->get_parameter("example_param/input", param_msg);
       this->get_parameter("example_param/bruh", count_bruh);
 
       auto msg = std_msgs::msg::String();
       msg.data = "Halo dunia!";
-      pub_msgs->publish(msg);
+      pub_message->publish(msg);
 
       auto uhuy_msg = example_infs::msg::Uhuy();
       uhuy_msg.uhuy = "UHUY";
       uhuy_msg.command = "PRINT";
       pub_uhuy->publish(uhuy_msg);
 
-      request_print(param_msgs);
+      request_print(param_msg);
       send_goal(count_bruh);
     }
 
@@ -111,13 +111,13 @@ class TalkerClientCpp : public rclcpp::Node {
         auto request = std::make_shared<example_infs::srv::Print::Request>();
         request->command = input; 
 
-        cli_print->async_send_request(request, std::bind(&TalkerClientCpp::future_callback, this, _1));  // with a callback function
+        cli_print->async_send_request(request, std::bind(&TalkerClientCpp::callback_fut_print, this, _1));  // with a callback function
         old_print = input;
       } 
  
     }
 
-    void future_callback(const rclcpp::Client<example_infs::srv::Print>::SharedFuture future) {
+    void callback_fut_print(const rclcpp::Client<example_infs::srv::Print>::SharedFuture future) {
       std::shared_ptr<example_infs::srv::Print::Response> result = future.get();
       RCLCPP_INFO(this->get_logger(), "Service call responded with %s", result->success ? "true" : "false");
 
@@ -136,9 +136,9 @@ class TalkerClientCpp : public rclcpp::Node {
         RCLCPP_INFO(this->get_logger(), "Sending goal");
 
         auto send_goal_options = rclcpp_action::Client<Bruh>::SendGoalOptions();
-        send_goal_options.goal_response_callback = std::bind(&TalkerClientCpp::goal_response_callback, this, _1);
-        send_goal_options.feedback_callback = std::bind(&TalkerClientCpp::feedback_callback, this, _1, _2);
-        send_goal_options.result_callback = std::bind(&TalkerClientCpp::result_callback, this, _1);
+        send_goal_options.goal_response_callback = std::bind(&TalkerClientCpp::goal_response_callback_bruh, this, _1);
+        send_goal_options.feedback_callback = std::bind(&TalkerClientCpp::feedback_callback_bruh, this, _1, _2);
+        send_goal_options.result_callback = std::bind(&TalkerClientCpp::result_callback_bruh, this, _1);
         
         cli_act_bruh->async_send_goal(goal_msg, send_goal_options);
         old_bruh = _count_bruh;
@@ -147,7 +147,7 @@ class TalkerClientCpp : public rclcpp::Node {
     }
 
     // ACTION CALLBACKS
-    void goal_response_callback(std::shared_future<GoalHandleBruh::SharedPtr> future) {
+    void goal_response_callback_bruh(std::shared_future<GoalHandleBruh::SharedPtr> future) {
       auto goal_handle = future.get();
       if (!goal_handle) {
         RCLCPP_ERROR(this->get_logger(), "Goal was rejected by server");
@@ -157,14 +157,14 @@ class TalkerClientCpp : public rclcpp::Node {
       }
     }
 
-    void feedback_callback(
+    void feedback_callback_bruh(
       GoalHandleBruh::SharedPtr,
       const std::shared_ptr<const Bruh::Feedback> feedback) {
 
       RCLCPP_INFO(this->get_logger(), feedback->bruh.c_str());
     }
 
-    void result_callback(const GoalHandleBruh::WrappedResult& result) {
+    void result_callback_bruh(const GoalHandleBruh::WrappedResult& result) {
       switch (result.code) {
         case rclcpp_action::ResultCode::SUCCEEDED:
           break;
