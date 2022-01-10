@@ -23,7 +23,7 @@ class Header {
     Header(const rclcpp::Node::SharedPtr node); // CONSTRUCTOR
     ~Header(); // DESTRUCTOR
 
-    std::string param_msg;
+    std::string param_input;
 
     // API
     void print_uhuy();
@@ -57,7 +57,7 @@ class Header {
 
     void callback_fut_print(const rclcpp::Client<example_infs::srv::Print>::SharedFuture future);
 
-    void callback_msg_msgs(const std_msgs::msg::String::SharedPtr msg);
+    void callback_msg_message(const std_msgs::msg::String::SharedPtr msg);
 
     void callback_msg_uhuy(const example_infs::msg::Uhuy::SharedPtr msg);
 

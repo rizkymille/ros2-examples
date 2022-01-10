@@ -53,7 +53,7 @@ class TalkerClientCpp : public rclcpp::Node {
 
   private:
     
-    std::string old_print, param_msg;
+    std::string old_print, param_input;
 
     int old_bruh, count_bruh;
 
@@ -73,7 +73,7 @@ class TalkerClientCpp : public rclcpp::Node {
 
     // basically void loop in arduino, but more e p i c
     void timer_loop() {
-      this->get_parameter("example_param/input", param_msg);
+      this->get_parameter("example_param/input", param_input);
       this->get_parameter("example_param/bruh", count_bruh);
 
       auto msg = std_msgs::msg::String();
@@ -85,22 +85,18 @@ class TalkerClientCpp : public rclcpp::Node {
       uhuy_msg.command = "PRINT";
       pub_uhuy->publish(uhuy_msg);
 
-      request_print(param_msg);
+      request_print(param_input);
       send_goal(count_bruh);
     }
 
     // make sure all service online (in the beginning only, cause wait_for_service will mess granularity)
     void service_check() {
-      while (!cli_print->wait_for_service(1s)) {
+      while ( (!cli_print->wait_for_service(1s)) && (!cli_act_bruh->wait_for_action_server(1s)) ) {
         if (!rclcpp::ok()) {
-          RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for the service. Exiting");
+          RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for server. Exiting");
           return;
         }
-        RCLCPP_WARN(this->get_logger(), "Service not available, waiting...");
-
-        if (!cli_act_bruh->wait_for_action_server(1s)) {
-          RCLCPP_WARN(this->get_logger(), "Action not available, waiting...");
-        }
+        RCLCPP_WARN(this->get_logger(), "Service/Action not available, waiting...");
       }
     }
  
@@ -167,7 +163,8 @@ class TalkerClientCpp : public rclcpp::Node {
     void result_callback_bruh(const GoalHandleBruh::WrappedResult& result) {
       switch (result.code) {
         case rclcpp_action::ResultCode::SUCCEEDED:
-          break;
+          RCLCPP_INFO(this->get_logger(), "Service call responded with %s", result.result->status ? "true" : "false");
+          return;
         case rclcpp_action::ResultCode::ABORTED:
           RCLCPP_ERROR(this->get_logger(), "Goal was aborted");
           return;
@@ -178,8 +175,6 @@ class TalkerClientCpp : public rclcpp::Node {
           RCLCPP_ERROR(this->get_logger(), "Unknown result code");
           return;
       }
-
-      RCLCPP_INFO(this->get_logger(), "Service call responded with %s", result.result->status ? "true" : "false");
     }
 
 };

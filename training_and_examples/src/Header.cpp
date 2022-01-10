@@ -9,7 +9,7 @@ Header::Header(const rclcpp::Node::SharedPtr node) : node_(node) {
   pub_uhuy = node_->create_publisher<example_infs::msg::Uhuy>("example_msg/uhuy", 10);
 
   // subscriber
-  sub_message = node_->create_subscription<std_msgs::msg::String>("example_msg/message", 10, std::bind(&Header::callback_msg_msgs, this, _1));
+  sub_message = node_->create_subscription<std_msgs::msg::String>("example_msg/message", 10, std::bind(&Header::callback_msg_message, this, _1));
       
   sub_uhuy = node_->create_subscription<example_infs::msg::Uhuy>("example_msg/uhuy", 10, std::bind(&Header::callback_msg_uhuy, this, _1));
 
@@ -32,16 +32,15 @@ Header::~Header() {}
 void Header::service_check() {
   while (!cli_print->wait_for_service(1s)) {
     if (!rclcpp::ok()) {
-      RCLCPP_ERROR(node_->get_logger(), "Interrupted while waiting for the service. Exiting.");
+      RCLCPP_ERROR(node_->get_logger(), "Interrupted while waiting for server. Exiting");
       return;
     }
-    
-    RCLCPP_INFO(node_->get_logger(), "Service not available, waiting...");
+    RCLCPP_WARN(node_->get_logger(), "Service not available, waiting...");
   }
 }
 
 void Header::get_param() {
-  node_->get_parameter("example_param/input", param_msg);
+  node_->get_parameter("example_param/input", param_input);
 }
 
 void Header::print_uhuy() {
@@ -87,7 +86,7 @@ void Header::callback_fut_print(const rclcpp::Client<example_infs::srv::Print>::
   RCLCPP_INFO(node_->get_logger(), "Service call responded with %s", result->success ? "true" : "false");
 }
 
-void Header::callback_msg_msgs(const std_msgs::msg::String::SharedPtr msg) {
+void Header::callback_msg_message(const std_msgs::msg::String::SharedPtr msg) {
   message_msg = msg->data;
 }
 

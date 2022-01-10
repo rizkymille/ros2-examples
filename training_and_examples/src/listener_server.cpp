@@ -70,8 +70,8 @@ class ListenerServerCpp : public rclcpp::Node {
     /*
     Single executor style variables
     */
-    std::shared_ptr<Bruh::Feedback> feedback = std::make_shared<Bruh::Feedback>();
-    std::shared_ptr<Bruh::Result> result = std::make_shared<Bruh::Result>();
+    std::shared_ptr<Bruh::Feedback> feedback_bruh = std::make_shared<Bruh::Feedback>();
+    std::shared_ptr<Bruh::Result> result_bruh = std::make_shared<Bruh::Result>();
     std::shared_ptr<GoalHandleBruh> goal_handle_bruh; 
 
     // define timer variable
@@ -142,8 +142,7 @@ class ListenerServerCpp : public rclcpp::Node {
       
       RCLCPP_INFO(this->get_logger(), "Received request to cancel goal");
 
-      goal_handle_bruh = goal_handle; // pass the goal_handle. Single executor style
-      // (void) goal_handle; // complier error avoidance (unused parameter error) Multiexecutor style
+      (void) goal_handle; // complier error avoidance (unused parameter error)
       
       return rclcpp_action::CancelResponse::ACCEPT;
     }
@@ -173,24 +172,24 @@ class ListenerServerCpp : public rclcpp::Node {
       // Check if there is a cancel request
       if (goal_handle_bruh->is_canceling()) {
         RCLCPP_INFO(this->get_logger(), "Goal Canceled");
-        result->status = false;
-        goal_handle_bruh->canceled(result);
+        result_bruh->status = false;
+        goal_handle_bruh->canceled(result_bruh);
         handler_execute = false;
         return;
       }
 
       // Check if goal is done
       if (i == count) {
-        result->status = true;
-        goal_handle_bruh->succeed(result);
+        result_bruh->status = true;
+        goal_handle_bruh->succeed(result_bruh);
         RCLCPP_INFO(this->get_logger(), "Goal Succeeded");
         handler_execute = false;
         return;
       }
 
       // Publish feedback
-      feedback->bruh = "BRUH " + std::to_string(i);
-      goal_handle_bruh->publish_feedback(feedback);
+      feedback_bruh->bruh = "BRUH " + std::to_string(i);
+      goal_handle_bruh->publish_feedback(feedback_bruh);
 
       RCLCPP_INFO(this->get_logger(), "Publish Feedback");
 
@@ -222,14 +221,14 @@ class ListenerServerCpp : public rclcpp::Node {
 
         // Check if goal is done
         if (i == count) {
+          RCLCPP_INFO(this->get_logger(), "Goal Succeeded");
           result->status = true;
           goal_handle->succeed(result);
-          RCLCPP_INFO(this->get_logger(), "Goal Succeeded");
           return;
         }
 
         // Publish feedback
-        feedback->bruh = std::string("BRUH %d", i);
+        feedback->bruh = "BRUH " + std::to_string(i);
         goal_handle->publish_feedback(feedback);
 
         RCLCPP_INFO(this->get_logger(), "Publish Feedback");
