@@ -20,7 +20,7 @@ like other people do!\
 \
 If you're creating python executables, don't forget to add shebang line `#!/usr/bin/env python3`! Otherwise your program can't be found\
 \
-Refrain yourself from declaring variables in class. If you needed initial value, use `self.variable = <initial_variable>`\
+Refrain yourself from declaring variables in class. If you needed initial value, use `self.variable = <initial_variable>`
 ### C++
 Put variable declaration above method declaration in the class. In this case please don't follow ros2 examples\
 \
