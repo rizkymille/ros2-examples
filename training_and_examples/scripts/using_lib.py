@@ -29,7 +29,7 @@ class UsingLibPython(Node, Header):
     self.publish_uhuy()
     self.print_uhuy()
 
-    self.request_print(self.param_msgs)
+    self.request_print(self.param_input)
 
 
 
