@@ -1,34 +1,61 @@
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.actions import GroupAction
+
 from launch_ros.actions import Node
+from launch.conditions import LaunchConfigurationEquals
+
 
 def generate_launch_description():
   ld = LaunchDescription()
 
-  # cara bikin global parameter tanpa global parameter server,
-  # using vtol e p i c big brain technique
-  # glob_params = [{"lala/lele":"LOLO"},
-  #                {"haha/hihi":"HEHO"}]
+  launch_exe_arg = DeclareLaunchArgument('launch_exe', default_value='lib')
 
-  listener_server_node = Node(
-    package='training_and_examples',
-    executable='listener_server.py',
-    name='listener_server_python',
-    # biar bisa masukkin global param:
-    # parameters=glob_params,
-    output='screen'
-  )
+  launch_lib_exe = GroupAction(
+    actions=[
+      Node(
+        package='training_and_examples',
+        executable='using_lib.py',
+        name='using_lib_python',
+        parameters=[{"example_param/input":"PRINT"}],
+        )
+      ],
+    condition=LaunchConfigurationEquals('launch_exe', 'lib')
+    )
+  
+  '''
+  global initial parameter
+  glob_params = [{"lala/lele":"LOLO"},
+                 {"haha/hihi":"HEHO"}]
 
   talker_client_node = Node(
     package='training_and_examples',
     executable='talker_client.py',
     name='talker_client_python',
-    # biar bisa masukkin global param:
     # parameters=glob_params+[{"example_param/Input":"PRINT"}],
     parameters=[{"example_param/input":"PRINT"}],
-    output='screen'
   )
+  '''
 
-  ld.add_action(listener_server_node)
-  ld.add_action(talker_client_node)
-
+  launch_split_exe = GroupAction(
+    actions=[
+      Node(
+        package='training_and_examples',
+        executable='listener_server.py',
+        name='listener_server_python',
+        ),
+      Node(
+        package='training_and_examples',
+        executable='talker_client.py',
+        name='talker_client_python',
+        parameters=[{'example_param/input':'PRINT'}],
+        )
+      ],
+    condition=LaunchConfigurationEquals('launch_exe', 'split')
+    )
+  
+  ld.add_action(launch_exe_arg)
+  ld.add_action(launch_lib_exe)
+  ld.add_action(launch_split_exe)
+  
   return ld
