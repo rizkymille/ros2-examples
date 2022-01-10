@@ -30,6 +30,5 @@ Rather than traditional `.h` format, use `.hpp`. Put that inside `include/<proje
 \
 In terms of header files, write the function body in `.cpp` file. But when using local class in `.cpp`, write the body directly under function header.
 
-
 ## TODO
-- YAML and Launch arguments
+Nothing at the moment :)
