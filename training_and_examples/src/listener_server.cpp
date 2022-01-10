@@ -156,7 +156,7 @@ class ListenerServerCpp : public rclcpp::Node {
 
       RCLCPP_INFO(this->get_logger(), "Executing goal");
 
-      i = 0;
+      i = 1;
 
       /*
       Multiexecutor style
@@ -179,7 +179,7 @@ class ListenerServerCpp : public rclcpp::Node {
       }
 
       // Check if goal is done
-      if (i == count) {
+      if (i > count) {
         result_bruh->status = true;
         goal_handle_bruh->succeed(result_bruh);
         RCLCPP_INFO(this->get_logger(), "Goal Succeeded");

@@ -19,7 +19,6 @@ class ListenerServerPython(Node):
     self.print_continous = False
     self.uhuy_msg = ''
     self.uhuy_command = ''
-    self.i = 0
 
     self.get_logger().info('Initiating listener and server...')
 
@@ -104,7 +103,7 @@ class ListenerServerPython(Node):
     # Execute a goal
     self.get_logger().info('Executing goal')
 
-    i = 0
+    i = 1
 
     loop_rate = self.create_rate(1/self.timer_period)
 
@@ -120,7 +119,7 @@ class ListenerServerPython(Node):
         return result_bruh
 
       # Check if goal is done
-      if (i == goal_handle.request.count):
+      if (i > goal_handle.request.count):
         self.get_logger().info('Goal Succeeded')
         result_bruh.status = True
         goal_handle.succeed()
