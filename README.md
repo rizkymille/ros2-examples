@@ -1,4 +1,4 @@
-# ros2-training-and-examples
+# ROS2 Training and Examples
 My repository for ros2 training and code examples
 
 # Some style and guides
