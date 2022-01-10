@@ -1,11 +1,19 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
 
+import os
+from ament_index_python.packages import get_package_share_directory
+
 def generate_launch_description():
   ld = LaunchDescription()
 
-  # cara bikin global parameter tanpa global parameter server,
-  # using vtol e p i c big brain technique
+  config = os.path.join(
+    get_package_share_directory('training_and_examples'),
+    'config',
+    'params.yaml'
+    )
+
+  # global initial parameter
   # glob_params = [{"lala/lele":"LOLO"},
   #                {"haha/hihi":"HEHO"}]
 
@@ -13,19 +21,15 @@ def generate_launch_description():
     package='training_and_examples',
     executable='listener_server_cpp',
     name='listener_server_cpp',
-    # biar bisa masukkin global param:
     # parameters=glob_params,
-    output='screen'
   )
 
   talker_client_node = Node(
     package='training_and_examples',
     executable='talker_client_cpp',
     name='talker_client_cpp',
-    # biar bisa masukkin global param:
     # parameters=glob_params+[{"example_param/Input":"PRINT"}],
-    parameters=[{"example_param/input":"PRINT"}],
-    output='screen'
+    parameters=[config],
   )
 
   ld.add_action(listener_server_node)

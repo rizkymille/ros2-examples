@@ -87,6 +87,11 @@ install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}
 )
 
+# Install yaml parameters file
+install(DIRECTORY config
+  DESTINATION share/${PROJECT_NAME}
+)
+
 # Install header files
 install(
   DIRECTORY include/${PROJECT_NAME}
@@ -108,6 +113,8 @@ install(TARGETS
   using_lib_cpp
   DESTINATION lib/${PROJECT_NAME}
 )
+
+
 
 # Install Python modules
 ament_python_install_package(module)
