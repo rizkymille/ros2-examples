@@ -65,7 +65,7 @@ Publisher:\
 Subscriber:\
 `sub_vision`
 - Action name for position requests\
-**Special case: use `_act_` between message operation and lowest message hierarchy as designator**
+**Special case: use `_act_` between message operation and lowest message hierarchy as designator**\
 Client:\
 `cli_act_pos`\
 Server:\
