@@ -3,10 +3,14 @@ My repository for ros2 training and code examples
 
 # Some style and guides
 ## Interface package (example_infs)
-- If the interface package only uses msg type, then the package name should be: `<package_name>_msgs`
-- If the interface package only uses srv type, then the package name should be: `<package_name>_srvs`
-- If the interface package only uses action type, then the package name should be: `<package_name>_acts`
-- If the interface package contains srv and msg type, or all the three types, then the package name should be: `<package_name>_infs`
+- If the interface package only uses msg type, then the package name should be:\ 
+`<package_name>_msgs`
+- If the interface package only uses srv type, then the package name should be:\ 
+`<package_name>_srvs`
+- If the interface package only uses action type, then the package name should be:\
+`<package_name>_acts`
+- If the interface package contains srv and msg type, or all the three types, then the package name should be:\
+`<package_name>_infs`
 
 ## Program package (training_and_examples)
 This package is language mixed, that's why I still use CMakeLists even there's python program.
@@ -26,7 +30,8 @@ Example: `void RunTest(const int& test_num)`
 - The define name should be `<PACKAGE_NAME>_HPP_` in `#ifndef`, `#define`, and as comments in `#endif`.\ The endif should be `#endif //_<PACKAGE_NAME>_HPP_`
 ### ROS Styles
 #### Message Labeling
-Name should be hiearchical with slash as separator of hiearchy,\ contains package name as the top level of hierarchy, and represents\ the message.\
+Name should be hiearchical with slash as separator of hiearchy,contains package name as the top level of hierarchy, and represents the message.\
+\
 Examples:\
 Service name for takeoff requests\
 `<package_name>/motion/takeoff`\
@@ -58,10 +63,10 @@ Client:\
 Publisher:\
 `pub_vision`\
 Subscriber:\
-`sub_vision`\
+`sub_vision`
 - Action name for position requests\
 **Special case: use `_act_` between message operation and lowest message hierarchy as designator**
 Client:\
 `cli_act_pos`\
 Server:\
-`ser_act_pos`\
+`ser_act_pos`
