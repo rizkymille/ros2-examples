@@ -42,7 +42,7 @@ Action name for position requests\
 Parameter name for Proportional roll constant\
 `<package_name>/control/PID/roll/P`\
 \
-Best practices:\
+Best practices:
 - Always use single word whenever possible
 - Create documentation in README.md for every message name and types
 #### Message Typing
