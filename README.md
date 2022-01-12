@@ -51,7 +51,7 @@ Best practices:
 #### Variable naming
 Variable for construction of message operation should be go like this:\
 `<message_operation>_<lowest_message_hierarchy>`\
-The message_operation should be in 3 starting syllable
+The message_operation should contains just 3 starting syllables
 \
 Example:
 - Service name for takeoff requests\
