@@ -27,7 +27,7 @@ Example: `void RunTest(const int& test_num)`
 #### Headers/Libraries
 - Rather than traditional `.h` format, use `.hpp`. Put that inside `include/<project_name>`
 - In terms of header files, write the function body in `.cpp` file
-- The define name should be `<PACKAGE_NAME>_HPP_` in `#ifndef`, `#define`, and as comments in `#endif`.\ The endif should be `#endif //_<PACKAGE_NAME>_HPP_`
+- The define name should be `<PACKAGE_NAME>_HPP_` in `#ifndef`, `#define`, and as comments in `#endif`. Example: `#endif //_<PACKAGE_NAME>_HPP_`
 ### ROS Styles
 #### Message Labeling
 Name should be hiearchical with slash as separator of hiearchy,contains package name as the top level of hierarchy, and represents the message.\
@@ -51,7 +51,7 @@ Best practices:
 #### Variable naming
 Variable for construction of message operation should be go like this:\
 `<message_operation>_<lowest_message_hierarchy>`\
-The message_operation should be in 3 starting syllable
+The message_operation should contains just 3 starting syllables
 \
 Example:
 - Service name for takeoff requests\
@@ -65,7 +65,7 @@ Publisher:\
 Subscriber:\
 `sub_vision`
 - Action name for position requests\
-**Special case: use `_act_` between message operation and lowest message hierarchy as designator**
+**Special case: use `_act_` between message operation and lowest message hierarchy as designator**\
 Client:\
 `cli_act_pos`\
 Server:\
