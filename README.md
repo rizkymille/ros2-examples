@@ -1,5 +1,5 @@
-# ROS2 Training and Examples
-My repository for ros2 training and code examples
+# ROS2  Examples
+My repository for ros2 code examples
 
 # Some style and guides
 ## Interface package (example_infs)

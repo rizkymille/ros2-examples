@@ -1,4 +1,4 @@
-# NUGGETS GUIDE'S HOW TO INSTALL ROS2: DRONE EDITION
+# NUGGET'S GUIDE HOW TO INSTALL ROS2: DRONE EDITION
 #### What this installation guide will cover
 - Linux Ubuntu
 - ROS2 (obviously)
