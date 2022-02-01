@@ -3,13 +3,13 @@ My repository for ros2 code examples
 
 # Some style and guides
 ## Interface package (example_infs)
-- If the interface package only uses msg type, then the package name should be:\ 
+- If the interface package only uses msg type, then the package name should be: \ 
 `<package_name>_msgs`
-- If the interface package only uses srv type, then the package name should be:\ 
+- If the interface package only uses srv type, then the package name should be: \ 
 `<package_name>_srvs`
-- If the interface package only uses action type, then the package name should be:\
+- If the interface package only uses action type, then the package name should be: \
 `<package_name>_acts`
-- If the interface package contains srv and msg type, or all the three types, then the package name should be:\
+- If the interface package contains srv and msg type, or all the three types, then the package name should be: \
 `<package_name>_infs`
 
 ## Program package (example_programs)
