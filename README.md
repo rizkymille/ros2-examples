@@ -12,7 +12,7 @@ My repository for ros2 training and code examples
 - If the interface package contains srv and msg type, or all the three types, then the package name should be:\
 `<package_name>_infs`
 
-## Program package (training_and_examples)
+## Program package (example_programs)
 This package is language mixed, that's why I still use CMakeLists even there's python program.
 ### Python
 - `module` folder are for module or library. And `scripts` are for executables.

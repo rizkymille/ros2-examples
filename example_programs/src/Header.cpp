@@ -1,4 +1,4 @@
-#include "training_and_examples/Header.hpp"
+#include "example_programs/Header.hpp"
 
 // CONSTRUCTOR //
 Header::Header(const rclcpp::Node::SharedPtr node) : node_(node) {

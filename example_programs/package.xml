@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>training_and_examples</name>
+  <name>example_programs</name>
   <version>1.0.1</version>
-  <description>ROS2 training and example program package</description>
+  <description>ROS2 example program package</description>
   <maintainer email="r.millennianno@gmail.com">Muhammad Rizky Millennianno</maintainer>
   <license>BSD</license>
 
