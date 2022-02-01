@@ -1,4 +1,4 @@
-# NUGGET'S GUIDE HOW TO INSTALL ROS2: DRONE EDITION
+# Nugget's Guide How to Install ROS2: Drone Edition
 #### What this installation guide will cover
 - Linux Ubuntu
 - ROS2 (obviously)
@@ -8,10 +8,10 @@
 ## Linux Ubuntu
 - Create empty partition first for ubuntu, use 'shrink volume' feature in 'disk manager'
 - The partition size for ubuntu depends on your usage. Recommended size: above 20 GB
-- The minimal paritition for ubuntu contains 2 system: swap, and root. Swap is important because it acts as 'extended RAM' of your computer. Please install it, especially if you like to use hibernation mode
+- The minimal paritition for ubuntu contains 2 system: swap, and root. Swap is important because it acts as 'extended RAM' of your computer. Please allocate it, especially if you like to use hibernation mode
 - The swap allocation size can be according to this guide: https://help.ubuntu.com/community/SwapFaq
 - Now for installing ubuntu, I recommend you to use 20.04 (LTS) version: https://releases.ubuntu.com/20.04/
-- Flash the ubuntu iso image into your flashdisk
+- Flash the ubuntu ISO image into your flashdisk
 - Restart your computer, and enter BIOS mode. Set your flashdisk as your boot priority or boot from flashdisk
 - Happy installing!
 
@@ -27,7 +27,7 @@ Note:\
 `sudo apt install python3-colcon-common-extensions`
 
 ## PX4-ROS2 Hub
-PX4 uses Fast RTPS DDS, not Cyclone DDS. Therefore more painful steps to install!
+PX4 uses Fast RTPS DDS, not Cyclone DDS. Therefore more steps to install!
 - Install Java\
 `sudo apt install openjdk-11-jre-headless`
 - Install sdkman\

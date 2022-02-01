@@ -1,6 +1,19 @@
 # ROS2  Examples
 My repository for ros2 code examples
 
+#### How to use this repository
+- Create your ROS2 workspace\
+`mkdir ~/<your_ros2_workspace_name>/src`
+- Change directory into src\
+`cd ~/<your_ros2_workspace_name>/src`
+- Clone this repo\
+`git clone git@github.com:rizkymille/ros2-examples`
+- Rename `ros2-examples` to `ros2_examples` (avoid confusing ros2 package system by using snake case)\
+`mv ros2-examples ros2_examples`
+- Build package in workspace\
+`cd ~/<your_ros2_workspace_name>`\
+`colcon build`
+
 # Some style and guides
 ## Interface package (example_infs)
 - If the interface package only uses msg type, then the package name should be:\
