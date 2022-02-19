@@ -14,7 +14,7 @@ def generate_launch_description():
   launch_lib_exe = GroupAction(
     actions=[
       Node(
-        package='training_and_examples',
+        package='example_programs',
         executable='using_lib.py',
         name='using_lib_python',
         parameters=[{"example_param/input":"PRINT"}],
@@ -29,7 +29,7 @@ def generate_launch_description():
                  {"haha/hihi":"HEHO"}]
 
   talker_client_node = Node(
-    package='training_and_examples',
+    package='example_programs',
     executable='talker_client.py',
     name='talker_client_python',
     # parameters=glob_params+[{"example_param/Input":"PRINT"}],
@@ -40,12 +40,12 @@ def generate_launch_description():
   launch_split_exe = GroupAction(
     actions=[
       Node(
-        package='training_and_examples',
+        package='example_programs',
         executable='listener_server.py',
         name='listener_server_python',
         ),
       Node(
-        package='training_and_examples',
+        package='example_programs',
         executable='talker_client.py',
         name='talker_client_python',
         parameters=[{'example_param/input':'PRINT'}],

@@ -8,7 +8,7 @@ def generate_launch_description():
   ld = LaunchDescription()
 
   config = os.path.join(
-    get_package_share_directory('training_and_examples'),
+    get_package_share_directory('example_programs'),
     'config',
     'params.yaml'
     )
@@ -18,14 +18,14 @@ def generate_launch_description():
   #                {"haha/hihi":"HEHO"}]
 
   listener_server_node = Node(
-    package='training_and_examples',
+    package='example_programs',
     executable='listener_server_cpp',
     name='listener_server_cpp',
     # parameters=glob_params,
   )
 
   talker_client_node = Node(
-    package='training_and_examples',
+    package='example_programs',
     executable='talker_client_cpp',
     name='talker_client_cpp',
     # parameters=glob_params+[{"example_param/Input":"PRINT"}],
