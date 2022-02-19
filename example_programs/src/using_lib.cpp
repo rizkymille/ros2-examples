@@ -37,14 +37,17 @@ class UsingLibCpp : public rclcpp::Node { // , public Header // use this if regu
         header = std::make_shared<Header>(shared_from_this()); 
 
         header->service_check();
-        
         weak_expire_from_this = weak_from_this().expired(); 
       }
     }
-    
-    void timer_callback() {
 
+    int counter = 0;
+    
+    // Loop switch control by using 'timer ping-pong' system
+    void timer_callback() {
       init();
+
+      RCLCPP_INFO(this->get_logger(), "Timer callback run!");
 
       header->get_param();
       
@@ -52,7 +55,24 @@ class UsingLibCpp : public rclcpp::Node { // , public Header // use this if regu
       header->publish_uhuy();
       header->print_uhuy();
       header->request_print(header->param_input);
+      if(counter > 5) {
+        counter = 0;
+        timer = this->create_wall_timer(500ms, std::bind(&UsingLibCpp::uhuy_cb, this));
+      }
+      counter++;
     }
+
+    void uhuy_cb() {
+      RCLCPP_INFO(this->get_logger(), "Uhuy callback run!");
+      header->publish_uhuy();
+      header->print_uhuy();
+      if(counter > 5) {
+        counter = 0;
+        timer = this->create_wall_timer(500ms, std::bind(&UsingLibCpp::timer_callback, this));
+      }
+      counter++;
+    }
+
 };
 
 int main(int argc, char * argv[])
