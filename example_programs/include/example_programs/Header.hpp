@@ -20,7 +20,7 @@ using std::placeholders::_2;
 
 class Header {
   public:
-    Header(const rclcpp::Node::SharedPtr node, const rclcpp::CallbackGroup::SharedPtr cb_group_ = nullptr); // CONSTRUCTOR
+    Header(const rclcpp::Node::SharedPtr node); // CONSTRUCTOR
     ~Header(); // DESTRUCTOR
 
     std::string param_input;

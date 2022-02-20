@@ -8,7 +8,7 @@ class UsingLibCpp : public rclcpp::Node { // , public Header // use this if regu
 
       RCLCPP_INFO(this->get_logger(), "Initiating library using program");
 
-      timer = this->create_wall_timer(500ms, std::bind(&UsingLibCpp::timer_callback, this));
+      timer = this->create_wall_timer(500ms, std::bind(&UsingLibCpp::init, this));
 
     }
 
@@ -24,11 +24,11 @@ class UsingLibCpp : public rclcpp::Node { // , public Header // use this if regu
     and this will create bad_weak_ptr error. We must wait until bad_weak_ptr is expired,
     which when the class object is constructed, then we're able to share it into other class
     */
-    bool weak_expire_from_this = weak_from_this().expired();
+    //bool weak_expire_from_this = weak_from_this().expired();
 
     void init() {
-      if (weak_expire_from_this) {
-        //RCLCPP_INFO(this->get_logger(), "Object constructed! Calling library");
+      /*if (weak_expire_from_this) {
+        RCLCPP_INFO(this->get_logger(), "Object constructed! Calling library"); */
 
         /* 
         make class object as smart shared pointer, which shared from this class rclcpp::Node,
@@ -37,8 +37,10 @@ class UsingLibCpp : public rclcpp::Node { // , public Header // use this if regu
         header = std::make_shared<Header>(shared_from_this()); 
 
         header->service_check();
+        /*
         weak_expire_from_this = weak_from_this().expired(); 
-      }
+      }*/
+      timer = this->create_wall_timer(500ms, std::bind(&UsingLibCpp::timer_callback, this));
     }
 
     int counter = 0;
