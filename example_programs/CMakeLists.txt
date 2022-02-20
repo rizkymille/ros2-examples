@@ -63,6 +63,13 @@ target_link_libraries(using_lib_cpp
 ament_target_dependencies(using_lib_cpp 
   rclcpp)
 
+  add_executable(using_lib_2_cpp 
+  src/using_lib_2.cpp)
+target_link_libraries(using_lib_2_cpp
+  Header)
+ament_target_dependencies(using_lib_2_cpp 
+  rclcpp)
+
 #############
 ## TESTING ##
 #############
@@ -111,6 +118,7 @@ install(TARGETS
   listener_server_cpp
   talker_client_cpp
   using_lib_cpp
+  using_lib_2_cpp
   DESTINATION lib/${PROJECT_NAME}
 )
 

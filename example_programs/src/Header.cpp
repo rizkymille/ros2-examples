@@ -1,20 +1,23 @@
 #include "example_programs/Header.hpp"
 
 // CONSTRUCTOR //
-Header::Header(const rclcpp::Node::SharedPtr node) : node_(node) {
+Header::Header(const rclcpp::Node::SharedPtr node, const rclcpp::CallbackGroup::SharedPtr cb_group_) : node_(node) {
   
   // publisher
   pub_message = node_->create_publisher<std_msgs::msg::String>("example_msg/message", 10);
 
   pub_uhuy = node_->create_publisher<example_infs::msg::Uhuy>("example_msg/uhuy", 10);
 
+  auto sub_opt = rclcpp::SubscriptionOptions();
+  sub_opt.callback_group = cb_group_;
+
   // subscriber
-  sub_message = node_->create_subscription<std_msgs::msg::String>("example_msg/message", 10, std::bind(&Header::callback_msg_message, this, _1));
+  sub_message = node_->create_subscription<std_msgs::msg::String>("example_msg/message", 10, std::bind(&Header::callback_msg_message, this, _1), sub_opt);
       
-  sub_uhuy = node_->create_subscription<example_infs::msg::Uhuy>("example_msg/uhuy", 10, std::bind(&Header::callback_msg_uhuy, this, _1));
+  sub_uhuy = node_->create_subscription<example_infs::msg::Uhuy>("example_msg/uhuy", 10, std::bind(&Header::callback_msg_uhuy, this, _1), sub_opt);
 
   // server
-  ser_print = node_->create_service<example_infs::srv::Print>("example_srv/print", std::bind(&Header::callback_srv_print, this, _1, _2));
+  ser_print = node_->create_service<example_infs::srv::Print>("example_srv/print", std::bind(&Header::callback_srv_print, this, _1, _2), rmw_qos_profile_services_default, cb_group_);
 
   // client
   cli_print = node_->create_client<example_infs::srv::Print>("example_srv/print");
