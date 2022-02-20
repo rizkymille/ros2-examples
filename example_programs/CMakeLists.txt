@@ -38,6 +38,11 @@ ament_target_dependencies(Header
   std_msgs
   example_infs)
 
+add_library(HeaderMultiexecutor SHARED src/HeaderMultiexecutor.cpp)
+ament_target_dependencies(HeaderMultiexecutor 
+  rclcpp
+  std_msgs
+  example_infs)
 
 # Create Cpp executable
 add_executable(listener_server_cpp 
@@ -63,11 +68,11 @@ target_link_libraries(using_lib_cpp
 ament_target_dependencies(using_lib_cpp 
   rclcpp)
 
-  add_executable(using_lib_2_cpp 
-  src/using_lib_2.cpp)
-target_link_libraries(using_lib_2_cpp
-  Header)
-ament_target_dependencies(using_lib_2_cpp 
+  add_executable(using_lib_multiexecutor_cpp 
+  src/using_lib_multiexecutor.cpp)
+target_link_libraries(using_lib_multiexecutor_cpp
+  HeaderMultiexecutor)
+ament_target_dependencies(using_lib_multiexecutor_cpp 
   rclcpp)
 
 #############
@@ -108,6 +113,7 @@ install(
 ## Install and export library
 install(TARGETS 
   Header
+  HeaderMultiexecutor
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
   RUNTIME DESTINATION bin
@@ -118,7 +124,7 @@ install(TARGETS
   listener_server_cpp
   talker_client_cpp
   using_lib_cpp
-  using_lib_2_cpp
+  using_lib_multiexecutor_cpp
   DESTINATION lib/${PROJECT_NAME}
 )
 
