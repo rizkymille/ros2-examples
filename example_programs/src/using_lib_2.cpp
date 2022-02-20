@@ -50,7 +50,7 @@ class UsingLibCpp : public rclcpp::Node { // , public Header // use this if regu
     int counter = 0;
 
     // sequential loop system
-    bool pub_msg = false;
+    bool pub_msg = false; // acts as second thread executing pointer
     
     void timer_callback() {
 
