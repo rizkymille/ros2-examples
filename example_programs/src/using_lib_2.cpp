@@ -8,7 +8,8 @@ class UsingLibCpp : public rclcpp::Node { // , public Header // use this if regu
 
       RCLCPP_INFO(this->get_logger(), "Initiating library using program");
 
-      cb_grp_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
+      // using callback group for multithreading executor management
+      cb_grp_ = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant); // using reentrant type because each callback must be separated
 
       timer = this->create_wall_timer(500ms, std::bind(&UsingLibCpp::init, this), cb_grp_);
       timer_second = this->create_wall_timer(500ms, std::bind(&UsingLibCpp::second_cb, this), cb_grp_);
