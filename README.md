@@ -54,6 +54,8 @@ Action name for position requests\
 `<package_name>/motion/position`\
 Parameter name for Proportional roll constant\
 `<package_name>/control/PID/roll/P`\
+Message variables\
+`auto tkf_req_msg`\
 \
 Best practices:
 - Always use single word whenever possible
@@ -63,23 +65,34 @@ Best practices:
 - Use available data type from ROS (like std_msgs and sensor_msgs) if possible
 #### Variable naming
 Variable for construction of message operation should be go like this:\
-`<message_operation>_<lowest_message_hierarchy>`\
+`<lowest_message_hierarchy>_<message_operation>`\
 The message_operation should contains just 3 starting syllables
 \
 Example:
 - Service name for takeoff requests\
 Server:\
-`ser_takeoff`\
+`takeoff_ser`\
 Client:\
-`cli_takeoff`
+`takeoff_cli`
 - Topic name for vision position\
 Publisher:\
-`pub_vision`\
+`vision_pub`\
 Subscriber:\
-`sub_vision`
+`vision_sub`\
+Callback:\
+`vision_cb`
 - Action name for position requests\
 **Special case: use `_act_` between message operation and lowest message hierarchy as designator**\
 Client:\
-`cli_act_pos`\
+`pos_act_cli`\
 Server:\
-`ser_act_pos`
+`pos_act_ser`
+- Timer name for trajectory publishing task\
+Timer naming should be representing what the task it is doing\
+Example:\
+`publish_trajectory_timer`
+- Callback group\
+Callback group naming is based on priority number\
+Example:\
+`prio_1_cb_group`\
+`prio_2_cb_group`
