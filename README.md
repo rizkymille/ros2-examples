@@ -78,7 +78,7 @@ Client:\
 Publisher:\
 `vision_pub`\
 Subscriber:\
-`vision_sub`
+`vision_sub`\
 Callback:\
 `vision_cb`
 - Action name for position requests\
@@ -86,13 +86,13 @@ Callback:\
 Client:\
 `act_pos_cli`\
 Server:\
-`act_pos_ser`\
+`act_pos_ser`
 - Timer name for trajectory publishing task\
 Timer naming should be representing what the task it is doing\
 Example:\
-`publish_trajectory_timer`\
+`publish_trajectory_timer`
 - Callback group\
 Callback group naming is based on priority number\
 Example:\
 `prio_1_cb_group`\
-`prio_2_cb_group`\
+`prio_2_cb_group`
