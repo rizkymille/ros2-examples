@@ -84,9 +84,9 @@ Callback:\
 - Action name for position requests\
 **Special case: use `_act_` between message operation and lowest message hierarchy as designator**\
 Client:\
-`act_pos_cli`\
+`pos_act_cli`\
 Server:\
-`act_pos_ser`
+`pos_act_ser`
 - Timer name for trajectory publishing task\
 Timer naming should be representing what the task it is doing\
 Example:\
