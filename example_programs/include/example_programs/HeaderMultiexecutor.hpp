@@ -41,10 +41,11 @@ class Header {
     std::string uhuy_msg, uhuy_command;
 
     bool print_continous = false;
-    bool pub_msg = false;
+    //bool pub_msg = false;
 
     int counter = 0;
 
+    rclcpp::CallbackGroup::SharedPtr cb_group_;
     rclcpp::TimerBase::SharedPtr timer_operate;
 
     // create publisher object

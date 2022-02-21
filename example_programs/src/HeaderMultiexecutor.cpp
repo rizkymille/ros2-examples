@@ -1,8 +1,10 @@
 #include "example_programs/HeaderMultiexecutor.hpp"
 
 // CONSTRUCTOR //
-Header::Header(const rclcpp::Node::SharedPtr node, const rclcpp::CallbackGroup::SharedPtr cb_group_) : node_(node) {
+Header::Header(const rclcpp::Node::SharedPtr node, const rclcpp::CallbackGroup::SharedPtr cb_group) : node_(node) {
   
+  cb_group_ = cb_group;
+
   // publisher
   pub_message = node_->create_publisher<std_msgs::msg::String>("example_msg/message", 10);
 
@@ -24,8 +26,6 @@ Header::Header(const rclcpp::Node::SharedPtr node, const rclcpp::CallbackGroup::
 
   // parameters
   node_->declare_parameter<std::string>("example_param/input", "PRINT");
-
-  timer_operate = node_->create_wall_timer(500ms, std::bind(&Header::cb_operate, this), cb_group_);
 
 }
 
@@ -89,13 +89,13 @@ void Header::run_pub_msg(const std::string cmd) {
   rclcpp::Rate rate(2);
 
   RCLCPP_INFO(node_->get_logger(), "Publishing");
-  pub_msg = true;
+  timer_operate = node_->create_wall_timer(500ms, std::bind(&Header::cb_operate, this), cb_group_);
 
   // while loop control like ros1
   while(rclcpp::ok()) {
     param_input = cmd;
     RCLCPP_INFO(node_->get_logger(), "Count: %d", counter);
-    if(!pub_msg) return;
+    if(timer_operate->is_canceled()) return;
     rate.sleep();
   }
 }
@@ -103,18 +103,15 @@ void Header::run_pub_msg(const std::string cmd) {
 // CALLBACKS //
 void Header::cb_operate() {
   RCLCPP_INFO_ONCE(node_->get_logger(), "Message callback run!");
-  if(pub_msg) {
-    RCLCPP_INFO(node_->get_logger(), "%s command recieved", param_input.c_str());
-    publish_msg();
-    publish_uhuy();
-    print_uhuy();
-    request_print(param_input);
-    if(counter > 5) {
-      pub_msg = false;
-      counter = 0;
-    }
-    counter++;
+  publish_msg();
+  publish_uhuy();
+  print_uhuy();
+  request_print(param_input);
+  if(counter > 5) {
+    counter = 0;
+    timer_operate->cancel();
   }
+  counter++;
 }
 
 void Header::callback_fut_print(const rclcpp::Client<example_infs::srv::Print>::SharedFuture future) {
