@@ -1,3 +1,6 @@
 /.vscode
 /example_programs/.vscode
 /example_infs/.vscode
+/build
+/install
+/log
