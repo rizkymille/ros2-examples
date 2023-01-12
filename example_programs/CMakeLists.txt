@@ -32,22 +32,22 @@ find_package(example_infs REQUIRED)
 include_directories(include)
 
 # Create Cpp library from header
-add_library(Header SHARED src/Header.cpp)
-ament_target_dependencies(Header 
+add_library(header SHARED src/header.cpp)
+ament_target_dependencies(header 
   rclcpp
   std_msgs
   example_infs)
-target_include_directories(Header
+target_include_directories(header
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
 
-add_library(HeaderMultiexecutor SHARED src/HeaderMultiexecutor.cpp)
-ament_target_dependencies(HeaderMultiexecutor 
+add_library(header_multiexecutor SHARED src/header_multiexecutor.cpp)
+ament_target_dependencies(header_multiexecutor 
   rclcpp
   std_msgs
   example_infs)
-target_include_directories(HeaderMultiexecutor
+target_include_directories(header_multiexecutor
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
@@ -72,14 +72,14 @@ ament_target_dependencies(talker_client_cpp
 add_executable(using_lib_cpp 
   src/using_lib.cpp)
 target_link_libraries(using_lib_cpp
-  Header)
+  header)
 ament_target_dependencies(using_lib_cpp 
   rclcpp)
 
 add_executable(using_lib_multiexecutor_cpp 
   src/using_lib_multiexecutor.cpp)
 target_link_libraries(using_lib_multiexecutor_cpp
-  HeaderMultiexecutor)
+  header_multiexecutor)
 ament_target_dependencies(using_lib_multiexecutor_cpp 
   rclcpp)
 
@@ -102,7 +102,7 @@ endif()
 ## INSTALL ##
 #############
 
-ament_export_targets(Header HeaderMultiexecutor HAS_LIBRARY_TARGET)
+ament_export_targets(header header_multiexecutor HAS_LIBRARY_TARGET)
 ament_export_dependencies(ament_cmake ament_cmake_python rclcpp rclcpp_action rclpy example_infs std_msgs)
 
 # Install launch file
@@ -123,16 +123,16 @@ install(
 
 ## Install and export library
 install( 
-  TARGETS Header
-  EXPORT Header
+  TARGETS header
+  EXPORT header
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
   RUNTIME DESTINATION bin
 )
 
 install(
-  TARGETS HeaderMultiexecutor
-  EXPORT HeaderMultiexecutor
+  TARGETS header_multiexecutor
+  EXPORT header_multiexecutor
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
   RUNTIME DESTINATION bin

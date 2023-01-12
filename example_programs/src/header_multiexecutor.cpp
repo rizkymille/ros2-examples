@@ -1,20 +1,25 @@
-#include "example_programs/Header.hpp"
+#include "example_programs/header_multiexecutor.hpp"
 
 // CONSTRUCTOR //
-Header::Header(const rclcpp::Node::SharedPtr node) : node_(node) {
+Header::Header(const rclcpp::Node::SharedPtr node, const rclcpp::CallbackGroup::SharedPtr cb_group) : node_(node) {
   
+  cb_group_ = cb_group;
+
   // publisher
   pub_message = node_->create_publisher<std_msgs::msg::String>("example_msg/message", 10);
 
   pub_uhuy = node_->create_publisher<example_infs::msg::Uhuy>("example_msg/uhuy", 10);
 
+  auto sub_opt = rclcpp::SubscriptionOptions();
+  sub_opt.callback_group = cb_group_;
+
   // subscriber
-  sub_message = node_->create_subscription<std_msgs::msg::String>("example_msg/message", 10, std::bind(&Header::callback_msg_message, this, _1));
+  sub_message = node_->create_subscription<std_msgs::msg::String>("example_msg/message", 10, std::bind(&Header::callback_msg_message, this, _1), sub_opt);
       
-  sub_uhuy = node_->create_subscription<example_infs::msg::Uhuy>("example_msg/uhuy", 10, std::bind(&Header::callback_msg_uhuy, this, _1));
+  sub_uhuy = node_->create_subscription<example_infs::msg::Uhuy>("example_msg/uhuy", 10, std::bind(&Header::callback_msg_uhuy, this, _1), sub_opt);
 
   // server
-  ser_print = node_->create_service<example_infs::srv::Print>("example_srv/print", std::bind(&Header::callback_srv_print, this, _1, _2));
+  ser_print = node_->create_service<example_infs::srv::Print>("example_srv/print", std::bind(&Header::callback_srv_print, this, _1, _2), rmw_qos_profile_services_default, cb_group_);
 
   // client
   cli_print = node_->create_client<example_infs::srv::Print>("example_srv/print");
@@ -80,7 +85,35 @@ void Header::request_print(const std::string& input) {
 
 }
 
+void Header::run_pub_msg(const std::string cmd) {
+  rclcpp::Rate rate(2);
+
+  RCLCPP_INFO(node_->get_logger(), "Publishing");
+  timer_operate = node_->create_wall_timer(500ms, std::bind(&Header::cb_operate, this), cb_group_);
+
+  // while loop control like ros1
+  while(rclcpp::ok()) {
+    param_input = cmd;
+    RCLCPP_INFO(node_->get_logger(), "Count: %d", counter);
+    if(timer_operate->is_canceled()) return;
+    rate.sleep();
+  }
+}
+
 // CALLBACKS //
+void Header::cb_operate() {
+  RCLCPP_INFO_ONCE(node_->get_logger(), "Message callback run!");
+  publish_msg();
+  publish_uhuy();
+  print_uhuy();
+  request_print(param_input);
+  if(counter > 5) {
+    counter = 0;
+    timer_operate->cancel();
+  }
+  counter++;
+}
+
 void Header::callback_fut_print(const rclcpp::Client<example_infs::srv::Print>::SharedFuture future) {
   std::shared_ptr<example_infs::srv::Print::Response> result = future.get();
   RCLCPP_INFO(node_->get_logger(), "Service call responded with %s", result->success ? "true" : "false");
