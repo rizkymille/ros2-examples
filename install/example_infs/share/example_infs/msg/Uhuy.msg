@@ -1,2 +1,0 @@
-string uhuy
-string command

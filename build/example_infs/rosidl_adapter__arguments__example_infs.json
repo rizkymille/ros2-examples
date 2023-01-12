@@ -1,8 +1,0 @@
-{
-  "package_name": "example_infs",
-  "non_idl_tuples": [
-    "/home/rizkymille/ros2-examples/example_infs:srv/Print.srv",
-    "/home/rizkymille/ros2-examples/example_infs:msg/Uhuy.msg",
-    "/home/rizkymille/ros2-examples/example_infs:action/Bruh.action"
-  ]
-}

@@ -1,4 +1,0 @@
-talker_client_cpp:
-  ros__parameters:
-    example_param/input: "STOP"
-    example_param/bruh: 0

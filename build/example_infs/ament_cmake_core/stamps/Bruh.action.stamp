@@ -1,8 +1,0 @@
-# Goal
-uint32 count
----
-# Result
-bool status
----
-# Feedback
-string bruh
