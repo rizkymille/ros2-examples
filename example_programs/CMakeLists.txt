@@ -37,12 +37,20 @@ ament_target_dependencies(Header
   rclcpp
   std_msgs
   example_infs)
+target_include_directories(Header
+  PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
 
 add_library(HeaderMultiexecutor SHARED src/HeaderMultiexecutor.cpp)
 ament_target_dependencies(HeaderMultiexecutor 
   rclcpp
   std_msgs
   example_infs)
+target_include_directories(HeaderMultiexecutor
+  PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
 
 # Create Cpp executable
 add_executable(listener_server_cpp 
@@ -68,7 +76,7 @@ target_link_libraries(using_lib_cpp
 ament_target_dependencies(using_lib_cpp 
   rclcpp)
 
-  add_executable(using_lib_multiexecutor_cpp 
+add_executable(using_lib_multiexecutor_cpp 
   src/using_lib_multiexecutor.cpp)
 target_link_libraries(using_lib_multiexecutor_cpp
   HeaderMultiexecutor)
@@ -94,6 +102,9 @@ endif()
 ## INSTALL ##
 #############
 
+ament_export_targets(Header HeaderMultiexecutor HAS_LIBRARY_TARGET)
+ament_export_dependencies(ament_cmake ament_cmake_python rclcpp rclcpp_action rclpy example_infs std_msgs)
+
 # Install launch file
 install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}
@@ -111,9 +122,17 @@ install(
 )
 
 ## Install and export library
-install(TARGETS 
-  Header
-  HeaderMultiexecutor
+install( 
+  TARGETS Header
+  EXPORT Header
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+
+install(
+  TARGETS HeaderMultiexecutor
+  EXPORT HeaderMultiexecutor
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
   RUNTIME DESTINATION bin

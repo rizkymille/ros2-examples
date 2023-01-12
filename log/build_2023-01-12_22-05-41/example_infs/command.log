@@ -1,0 +1,4 @@
+Invoking command in '/home/rizkymille/ros2-examples/build/example_infs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/rizkymille/ros2-examples/build/example_infs -- -j8 -l8
+Invoked command in '/home/rizkymille/ros2-examples/build/example_infs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/rizkymille/ros2-examples/build/example_infs -- -j8 -l8
+Invoking command in '/home/rizkymille/ros2-examples/build/example_infs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/rizkymille/ros2-examples/build/example_infs
+Invoked command in '/home/rizkymille/ros2-examples/build/example_infs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/rizkymille/ros2-examples/build/example_infs

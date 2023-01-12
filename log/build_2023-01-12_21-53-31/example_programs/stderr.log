@@ -1,0 +1,29 @@
+[01m[K/home/rizkymille/ros2-examples/example_programs/src/talker_client.cpp:[m[K In constructor ‘[01m[KTalkerClientCpp::TalkerClientCpp()[m[K’:
+[01m[K/home/rizkymille/ros2-examples/example_programs/src/talker_client.cpp:46:65:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KTalkerClientCpp::declare_parameter<std::string>(const char [20])[m[K’
+   46 |       this->declare_parameter<std::string>("example_param/input"[01;31m[K)[m[K;
+      |                                                                 [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/foxy/include/rclcpp/node.hpp:1224[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/executors/single_threaded_executor.hpp:28[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:22[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+                 from [01m[K/home/rizkymille/ros2-examples/example_programs/src/talker_client.cpp:7[m[K:
+[01m[K/opt/ros/foxy/include/rclcpp/node_impl.hpp:157:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kauto rclcpp::Node::declare_parameter(const string&, const ParameterT&, const ParameterDescriptor&, bool) [with ParameterT = std::__cxx11::basic_string<char>; std::string = std::__cxx11::basic_string<char>; rcl_interfaces::msg::ParameterDescriptor = rcl_interfaces::msg::ParameterDescriptor_<std::allocator<void> >][m[K’
+  157 | [01;36m[KNode[m[K::declare_parameter(
+      | [01;36m[K^~~~[m[K
+[01m[K/opt/ros/foxy/include/rclcpp/node_impl.hpp:157:1:[m[K [01;36m[Knote: [m[K  candidate expects 4 arguments, 1 provided
+[01m[K/home/rizkymille/ros2-examples/example_programs/src/talker_client.cpp:48:56:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KTalkerClientCpp::declare_parameter<int>(const char [19])[m[K’
+   48 |       this->declare_parameter<int>("example_param/bruh"[01;31m[K)[m[K;
+      |                                                        [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/foxy/include/rclcpp/node.hpp:1224[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/executors/single_threaded_executor.hpp:28[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:22[m[K,
+                 from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+                 from [01m[K/home/rizkymille/ros2-examples/example_programs/src/talker_client.cpp:7[m[K:
+[01m[K/opt/ros/foxy/include/rclcpp/node_impl.hpp:157:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kauto rclcpp::Node::declare_parameter(const string&, const ParameterT&, const ParameterDescriptor&, bool) [with ParameterT = int; std::string = std::__cxx11::basic_string<char>; rcl_interfaces::msg::ParameterDescriptor = rcl_interfaces::msg::ParameterDescriptor_<std::allocator<void> >][m[K’
+  157 | [01;36m[KNode[m[K::declare_parameter(
+      | [01;36m[K^~~~[m[K
+[01m[K/opt/ros/foxy/include/rclcpp/node_impl.hpp:157:1:[m[K [01;36m[Knote: [m[K  candidate expects 4 arguments, 1 provided
+make[2]: *** [CMakeFiles/talker_client_cpp.dir/build.make:63: CMakeFiles/talker_client_cpp.dir/src/talker_client.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:223: CMakeFiles/talker_client_cpp.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:141: all] Error 2

@@ -1,0 +1,620 @@
+[0.000000] (-) TimerEvent: {}
+[0.000379] (example_infs) JobQueued: {'identifier': 'example_infs', 'dependencies': OrderedDict()}
+[0.000456] (example_programs) JobQueued: {'identifier': 'example_programs', 'dependencies': OrderedDict([('example_infs', '/home/rizkymille/ros2-examples/install/example_infs')])}
+[0.000518] (example_infs) JobStarted: {'identifier': 'example_infs'}
+[0.021166] (example_infs) JobProgress: {'identifier': 'example_infs', 'progress': 'cmake'}
+[0.021760] (example_infs) Command: {'cmd': ['/usr/bin/cmake', '/home/rizkymille/ros2-examples/example_infs', '-DCMAKE_INSTALL_PREFIX=/home/rizkymille/ros2-examples/install/example_infs'], 'cwd': '/home/rizkymille/ros2-examples/build/example_infs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', ''), ('GTK_CSD', '0'), ('USER', 'rizkymille'), ('LC_TIME', 'id_ID.UTF-8'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1782'), ('XDG_SESSION_TYPE', 'x11'), ('XDG_CACHE_HOME', '/home/rizkymille/.cache'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/usr/bin/google-chrome-stable'), ('HOME', '/home/rizkymille'), ('OLDPWD', '/home/rizkymille'), ('DESKTOP_SESSION', 'Lubuntu'), ('ROS_PYTHON_VERSION', '3'), ('LXQT_DEFAULT_OPENBOX_CONFIG', '/etc/xdg/xdg-Lubuntu/openbox/lxqt-rc.xml'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('LC_MONETARY', 'id_ID.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('MANDATORY_PATH', '/usr/share/gconf/Lubuntu.mandatory.path'), ('QT_QPA_PLATFORMTHEME', 'lxqt'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'rizkymille'), ('WINDOWID', '0'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('DEFAULTS_PATH', '/usr/share/gconf/Lubuntu.default.path'), ('COLORFGBG', '15;0'), ('TERM', 'xterm-256color'), ('GTK_OVERLAY_SCROLLING', '0'), ('XDG_SESSION_ID', '4'), ('ROS_LOCALHOST_ONLY', '0'), ('SAL_USE_VCLPLUGIN', 'qt5'), ('PATH', '/opt/ros/foxy/bin:/home/rizkymille/.cargo/bin:/opt/gcc-arm-none-eabi-9-2020-q2-update/bin:/home/rizkymille/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session1'), ('XDG_MENU_PREFIX', 'lxqt-'), ('LC_ADDRESS', 'id_ID.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'LXQt'), ('LC_TELEPHONE', 'id_ID.UTF-8'), ('XDG_DATA_HOME', '/home/rizkymille/.local/share'), ('XDG_CONFIG_HOME', '/home/rizkymille/.config'), ('XDG_SESSION_DESKTOP', ''), ('XAUTHORITY', '/home/rizkymille/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-6yzOpIRighSe/agent.1737'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'id_ID.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LXQT_SESSION_CONFIG', 'session'), ('LC_MEASUREMENT', 'id_ID.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'id_ID.UTF-8'), ('XDG_VTNR', '1'), ('PWD', '/home/rizkymille/ros2-examples/build/example_infs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-Lubuntu:/etc/xdg:/etc:/usr/share'), ('XDG_DATA_DIRS', '/usr/share/Lubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'id_ID.UTF-8'), ('LC_PAPER', 'id_ID.UTF-8'), ('QT_PLATFORM_PLUGIN', 'lxqt'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.098322] (-) TimerEvent: {}
+[0.157997] (example_infs) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.198483] (-) TimerEvent: {}
+[0.299082] (-) TimerEvent: {}
+[0.304201] (example_infs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.314507] (example_infs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[0.399309] (-) TimerEvent: {}
+[0.413001] (example_infs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[0.416111] (example_infs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.499535] (-) TimerEvent: {}
+[0.531153] (example_infs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.551968] (example_infs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.552523] (example_infs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.556146] (example_infs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[0.599736] (-) TimerEvent: {}
+[0.672035] (example_infs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[0.674944] (example_infs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.700024] (-) TimerEvent: {}
+[0.797433] (example_infs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.800152] (-) TimerEvent: {}
+[0.813138] (example_infs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.813877] (example_infs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.820175] (example_infs) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.857354] (example_infs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[0.857851] (example_infs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.900361] (-) TimerEvent: {}
+[1.000890] (-) TimerEvent: {}
+[1.101403] (-) TimerEvent: {}
+[1.184931] (example_infs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[1.189733] (example_infs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.198639] (example_infs) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[1.201543] (-) TimerEvent: {}
+[1.301987] (-) TimerEvent: {}
+[1.353928] (example_infs) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[1.393669] (example_infs) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[1.402159] (-) TimerEvent: {}
+[1.501654] (example_infs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.502297] (-) TimerEvent: {}
+[1.568402] (example_infs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") \n'}
+[1.602499] (-) TimerEvent: {}
+[1.702941] (-) TimerEvent: {}
+[1.803379] (-) TimerEvent: {}
+[1.843330] (example_infs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[1.903573] (-) TimerEvent: {}
+[2.004049] (-) TimerEvent: {}
+[2.014625] (example_infs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.045259] (example_infs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.079705] (example_infs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[2.083028] (example_infs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)\n'}
+[2.104206] (-) TimerEvent: {}
+[2.126693] (example_infs) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[2.127020] (example_infs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[2.127203] (example_infs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8\n'}
+[2.127373] (example_infs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so\n'}
+[2.155566] (example_infs) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[2.204391] (-) TimerEvent: {}
+[2.304850] (-) TimerEvent: {}
+[2.405276] (-) TimerEvent: {}
+[2.505744] (-) TimerEvent: {}
+[2.532292] (example_infs) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.9.7 (/opt/ros/foxy/share/ament_lint_auto/cmake)\n'}
+[2.560086] (example_infs) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[2.562515] (example_infs) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[2.563875] (example_infs) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[2.569721] (example_infs) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.605919] (-) TimerEvent: {}
+[2.634992] (example_infs) StdoutLine: {'line': b'-- Generating done\n'}
+[2.638431] (example_infs) StdoutLine: {'line': b'-- Build files have been written to: /home/rizkymille/ros2-examples/build/example_infs\n'}
+[2.649481] (example_infs) CommandEnded: {'returncode': 0}
+[2.651087] (example_infs) JobProgress: {'identifier': 'example_infs', 'progress': 'build'}
+[2.655712] (example_infs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/rizkymille/ros2-examples/build/example_infs', '--', '-j8', '-l8'], 'cwd': '/home/rizkymille/ros2-examples/build/example_infs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', ''), ('GTK_CSD', '0'), ('USER', 'rizkymille'), ('LC_TIME', 'id_ID.UTF-8'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1782'), ('XDG_SESSION_TYPE', 'x11'), ('XDG_CACHE_HOME', '/home/rizkymille/.cache'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/usr/bin/google-chrome-stable'), ('HOME', '/home/rizkymille'), ('OLDPWD', '/home/rizkymille'), ('DESKTOP_SESSION', 'Lubuntu'), ('ROS_PYTHON_VERSION', '3'), ('LXQT_DEFAULT_OPENBOX_CONFIG', '/etc/xdg/xdg-Lubuntu/openbox/lxqt-rc.xml'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('LC_MONETARY', 'id_ID.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('MANDATORY_PATH', '/usr/share/gconf/Lubuntu.mandatory.path'), ('QT_QPA_PLATFORMTHEME', 'lxqt'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'rizkymille'), ('WINDOWID', '0'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('DEFAULTS_PATH', '/usr/share/gconf/Lubuntu.default.path'), ('COLORFGBG', '15;0'), ('TERM', 'xterm-256color'), ('GTK_OVERLAY_SCROLLING', '0'), ('XDG_SESSION_ID', '4'), ('ROS_LOCALHOST_ONLY', '0'), ('SAL_USE_VCLPLUGIN', 'qt5'), ('PATH', '/opt/ros/foxy/bin:/home/rizkymille/.cargo/bin:/opt/gcc-arm-none-eabi-9-2020-q2-update/bin:/home/rizkymille/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session1'), ('XDG_MENU_PREFIX', 'lxqt-'), ('LC_ADDRESS', 'id_ID.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'LXQt'), ('LC_TELEPHONE', 'id_ID.UTF-8'), ('XDG_DATA_HOME', '/home/rizkymille/.local/share'), ('XDG_CONFIG_HOME', '/home/rizkymille/.config'), ('XDG_SESSION_DESKTOP', ''), ('XAUTHORITY', '/home/rizkymille/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-6yzOpIRighSe/agent.1737'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'id_ID.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LXQT_SESSION_CONFIG', 'session'), ('LC_MEASUREMENT', 'id_ID.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'id_ID.UTF-8'), ('XDG_VTNR', '1'), ('PWD', '/home/rizkymille/ros2-examples/build/example_infs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-Lubuntu:/etc/xdg:/etc:/usr/share'), ('XDG_DATA_DIRS', '/usr/share/Lubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'id_ID.UTF-8'), ('LC_PAPER', 'id_ID.UTF-8'), ('QT_PLATFORM_PLUGIN', 'lxqt'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[2.706102] (-) TimerEvent: {}
+[2.721007] (example_infs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target example_infs__cpp\x1b[0m\n'}
+[2.722111] (example_infs) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[2.737147] (example_infs) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[2.806250] (-) TimerEvent: {}
+[2.906589] (-) TimerEvent: {}
+[3.006934] (-) TimerEvent: {}
+[3.107266] (-) TimerEvent: {}
+[3.207813] (-) TimerEvent: {}
+[3.308277] (-) TimerEvent: {}
+[3.370355] (example_infs) StdoutLine: {'line': b'[  4%] Built target example_infs__cpp\n'}
+[3.382622] (example_infs) StdoutLine: {'line': b'[  6%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[3.387361] (example_infs) StdoutLine: {'line': b'[  8%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[3.387834] (example_infs) StdoutLine: {'line': b'[ 10%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[3.408427] (-) TimerEvent: {}
+[3.451902] (example_infs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target example_infs__rosidl_generator_c\x1b[0m\n'}
+[3.474478] (example_infs) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding C object CMakeFiles/example_infs__rosidl_generator_c.dir/rosidl_generator_c/example_infs/srv/detail/print__functions.c.o\x1b[0m\n'}
+[3.474757] (example_infs) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding C object CMakeFiles/example_infs__rosidl_generator_c.dir/rosidl_generator_c/example_infs/msg/detail/uhuy__functions.c.o\x1b[0m\n'}
+[3.476024] (example_infs) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/example_infs__rosidl_generator_c.dir/rosidl_generator_c/example_infs/action/detail/bruh__functions.c.o\x1b[0m\n'}
+[3.508567] (-) TimerEvent: {}
+[3.609018] (-) TimerEvent: {}
+[3.665716] (example_infs) StdoutLine: {'line': b'[ 19%] \x1b[32m\x1b[1mLinking C shared library libexample_infs__rosidl_generator_c.so\x1b[0m\n'}
+[3.709185] (-) TimerEvent: {}
+[3.731188] (example_infs) StdoutLine: {'line': b'[ 19%] Built target example_infs__rosidl_generator_c\n'}
+[3.742491] (example_infs) StdoutLine: {'line': b'[ 21%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[3.747671] (example_infs) StdoutLine: {'line': b'[ 23%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[3.809325] (-) TimerEvent: {}
+[3.846601] (example_infs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target example_infs__rosidl_typesupport_cpp\x1b[0m\n'}
+[3.870062] (example_infs) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/example_infs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/example_infs/srv/print__type_support.cpp.o\x1b[0m\n'}
+[3.870431] (example_infs) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/example_infs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/example_infs/msg/uhuy__type_support.cpp.o\x1b[0m\n'}
+[3.870607] (example_infs) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/example_infs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/example_infs/action/bruh__type_support.cpp.o\x1b[0m\n'}
+[3.909474] (-) TimerEvent: {}
+[4.009992] (-) TimerEvent: {}
+[4.110380] (-) TimerEvent: {}
+[4.210817] (-) TimerEvent: {}
+[4.255481] (example_infs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target example_infs__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[4.282870] (example_infs) StdoutLine: {'line': b'[ 31%] \x1b[32mBuilding CXX object CMakeFiles/example_infs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/example_infs/srv/detail/print__type_support.cpp.o\x1b[0m\n'}
+[4.296211] (example_infs) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/example_infs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/example_infs/msg/detail/uhuy__type_support.cpp.o\x1b[0m\n'}
+[4.310988] (-) TimerEvent: {}
+[4.350467] (example_infs) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/example_infs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/example_infs/action/detail/bruh__type_support.cpp.o\x1b[0m\n'}
+[4.391683] (example_infs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target example_infs__rosidl_typesupport_c\x1b[0m\n'}
+[4.392745] (example_infs) StdoutLine: {'line': b'[ 38%] \x1b[32m\x1b[1mLinking CXX shared library libexample_infs__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[4.402230] (example_infs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target example_infs__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[4.411130] (-) TimerEvent: {}
+[4.417298] (example_infs) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/example_infs__rosidl_typesupport_c.dir/rosidl_typesupport_c/example_infs/srv/print__type_support.cpp.o\x1b[0m\n'}
+[4.418424] (example_infs) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/example_infs__rosidl_typesupport_c.dir/rosidl_typesupport_c/example_infs/msg/uhuy__type_support.cpp.o\x1b[0m\n'}
+[4.445519] (example_infs) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object CMakeFiles/example_infs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/example_infs/srv/detail/dds_fastrtps/print__type_support.cpp.o\x1b[0m\n'}
+[4.467360] (example_infs) StdoutLine: {'line': b'[ 44%] Built target example_infs__rosidl_typesupport_cpp\n'}
+[4.472616] (example_infs) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding CXX object CMakeFiles/example_infs__rosidl_typesupport_c.dir/rosidl_typesupport_c/example_infs/action/bruh__type_support.cpp.o\x1b[0m\n'}
+[4.475254] (example_infs) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/example_infs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/example_infs/msg/detail/dds_fastrtps/uhuy__type_support.cpp.o\x1b[0m\n'}
+[4.491759] (example_infs) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding CXX object CMakeFiles/example_infs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/example_infs/action/detail/dds_fastrtps/bruh__type_support.cpp.o\x1b[0m\n'}
+[4.511303] (-) TimerEvent: {}
+[4.565305] (example_infs) StdoutLine: {'line': b'[ 53%] \x1b[32m\x1b[1mLinking CXX shared library libexample_infs__rosidl_typesupport_c.so\x1b[0m\n'}
+[4.603743] (example_infs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target example_infs__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[4.611478] (-) TimerEvent: {}
+[4.637363] (example_infs) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding C object CMakeFiles/example_infs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/example_infs/srv/detail/print__type_support.c.o\x1b[0m\n'}
+[4.643136] (example_infs) StdoutLine: {'line': b'[ 55%] Built target example_infs__rosidl_typesupport_c\n'}
+[4.659581] (example_infs) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding C object CMakeFiles/example_infs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/example_infs/msg/detail/uhuy__type_support.c.o\x1b[0m\n'}
+[4.703251] (example_infs) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding C object CMakeFiles/example_infs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/example_infs/action/detail/bruh__type_support.c.o\x1b[0m\n'}
+[4.711680] (-) TimerEvent: {}
+[4.795156] (example_infs) StdoutLine: {'line': b'[ 61%] \x1b[32m\x1b[1mLinking C shared library libexample_infs__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[4.811818] (-) TimerEvent: {}
+[4.853666] (example_infs) StdoutLine: {'line': b'[ 61%] Built target example_infs__rosidl_typesupport_introspection_c\n'}
+[4.911404] (example_infs) StdoutLine: {'line': b'[ 63%] \x1b[32m\x1b[1mLinking CXX shared library libexample_infs__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[4.911902] (-) TimerEvent: {}
+[5.012245] (-) TimerEvent: {}
+[5.017946] (example_infs) StdoutLine: {'line': b'[ 63%] Built target example_infs__rosidl_typesupport_introspection_cpp\n'}
+[5.112393] (-) TimerEvent: {}
+[5.212797] (-) TimerEvent: {}
+[5.237934] (example_infs) StdoutLine: {'line': b'[ 65%] \x1b[32m\x1b[1mLinking CXX shared library libexample_infs__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[5.313038] (-) TimerEvent: {}
+[5.364535] (example_infs) StdoutLine: {'line': b'[ 65%] Built target example_infs__rosidl_typesupport_fastrtps_cpp\n'}
+[5.377661] (example_infs) StdoutLine: {'line': b'[ 68%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[5.413202] (-) TimerEvent: {}
+[5.513647] (-) TimerEvent: {}
+[5.614102] (-) TimerEvent: {}
+[5.714524] (-) TimerEvent: {}
+[5.814985] (-) TimerEvent: {}
+[5.915475] (-) TimerEvent: {}
+[5.940723] (example_infs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target example_infs__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[5.976021] (example_infs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/example_infs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/example_infs/action/detail/bruh__type_support_c.cpp.o\x1b[0m\n'}
+[5.976377] (example_infs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/example_infs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/example_infs/msg/detail/uhuy__type_support_c.cpp.o\x1b[0m\n'}
+[5.976572] (example_infs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/example_infs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/example_infs/srv/detail/print__type_support_c.cpp.o\x1b[0m\n'}
+[6.015607] (-) TimerEvent: {}
+[6.116052] (-) TimerEvent: {}
+[6.216599] (-) TimerEvent: {}
+[6.316999] (-) TimerEvent: {}
+[6.417397] (-) TimerEvent: {}
+[6.478366] (example_infs) StdoutLine: {'line': b'[ 76%] \x1b[32m\x1b[1mLinking CXX shared library libexample_infs__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[6.517577] (-) TimerEvent: {}
+[6.600573] (example_infs) StdoutLine: {'line': b'[ 76%] Built target example_infs__rosidl_typesupport_fastrtps_c\n'}
+[6.616976] (example_infs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target example_infs\x1b[0m\n'}
+[6.617671] (-) TimerEvent: {}
+[6.635565] (example_infs) StdoutLine: {'line': b'[ 76%] Built target example_infs\n'}
+[6.651657] (example_infs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target example_infs__py\x1b[0m\n'}
+[6.670218] (example_infs) StdoutLine: {'line': b'[ 78%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[6.717851] (-) TimerEvent: {}
+[6.818279] (-) TimerEvent: {}
+[6.918707] (-) TimerEvent: {}
+[7.019149] (-) TimerEvent: {}
+[7.119589] (-) TimerEvent: {}
+[7.220128] (-) TimerEvent: {}
+[7.320620] (-) TimerEvent: {}
+[7.421047] (-) TimerEvent: {}
+[7.521481] (-) TimerEvent: {}
+[7.621929] (-) TimerEvent: {}
+[7.722382] (-) TimerEvent: {}
+[7.822856] (-) TimerEvent: {}
+[7.923306] (-) TimerEvent: {}
+[7.999580] (example_infs) StdoutLine: {'line': b'[ 78%] Built target example_infs__py\n'}
+[8.015972] (example_infs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target example_infs__python\x1b[0m\n'}
+[8.023402] (-) TimerEvent: {}
+[8.058029] (example_infs) StdoutLine: {'line': b'[ 80%] \x1b[32mBuilding C object CMakeFiles/example_infs__python.dir/rosidl_generator_py/example_infs/srv/_print_s.c.o\x1b[0m\n'}
+[8.062975] (example_infs) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding C object CMakeFiles/example_infs__python.dir/rosidl_generator_py/example_infs/action/_bruh_s.c.o\x1b[0m\n'}
+[8.065083] (example_infs) StdoutLine: {'line': b'[ 85%] \x1b[32mBuilding C object CMakeFiles/example_infs__python.dir/rosidl_generator_py/example_infs/msg/_uhuy_s.c.o\x1b[0m\n'}
+[8.123553] (-) TimerEvent: {}
+[8.224002] (-) TimerEvent: {}
+[8.236160] (example_infs) StdoutLine: {'line': b'[ 87%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/example_infs/libexample_infs__python.so\x1b[0m\n'}
+[8.295226] (example_infs) StdoutLine: {'line': b'[ 87%] Built target example_infs__python\n'}
+[8.307083] (example_infs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target example_infs__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[8.310653] (example_infs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target example_infs__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[8.310968] (example_infs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target example_infs__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[8.324160] (-) TimerEvent: {}
+[8.330429] (example_infs) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/example_infs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/example_infs/_example_infs_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[8.331465] (example_infs) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/example_infs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/example_infs/_example_infs_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[8.336558] (example_infs) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/example_infs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/example_infs/_example_infs_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[8.424287] (-) TimerEvent: {}
+[8.472919] (example_infs) StdoutLine: {'line': b'[ 95%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/example_infs/example_infs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so\x1b[0m\n'}
+[8.480335] (example_infs) StdoutLine: {'line': b'[ 97%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/example_infs/example_infs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so\x1b[0m\n'}
+[8.487129] (example_infs) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library rosidl_generator_py/example_infs/example_infs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so\x1b[0m\n'}
+[8.524509] (example_infs) StdoutLine: {'line': b'[100%] Built target example_infs__rosidl_typesupport_c__pyext\n'}
+[8.524762] (-) TimerEvent: {}
+[8.528915] (example_infs) StdoutLine: {'line': b'[100%] Built target example_infs__rosidl_typesupport_introspection_c__pyext\n'}
+[8.581233] (example_infs) StdoutLine: {'line': b'[100%] Built target example_infs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[8.598389] (example_infs) CommandEnded: {'returncode': 0}
+[8.624981] (-) TimerEvent: {}
+[8.702859] (example_infs) JobProgress: {'identifier': 'example_infs', 'progress': 'install'}
+[8.721572] (example_infs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/rizkymille/ros2-examples/build/example_infs'], 'cwd': '/home/rizkymille/ros2-examples/build/example_infs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', ''), ('GTK_CSD', '0'), ('USER', 'rizkymille'), ('LC_TIME', 'id_ID.UTF-8'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1782'), ('XDG_SESSION_TYPE', 'x11'), ('XDG_CACHE_HOME', '/home/rizkymille/.cache'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/usr/bin/google-chrome-stable'), ('HOME', '/home/rizkymille'), ('OLDPWD', '/home/rizkymille'), ('DESKTOP_SESSION', 'Lubuntu'), ('ROS_PYTHON_VERSION', '3'), ('LXQT_DEFAULT_OPENBOX_CONFIG', '/etc/xdg/xdg-Lubuntu/openbox/lxqt-rc.xml'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('LC_MONETARY', 'id_ID.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('MANDATORY_PATH', '/usr/share/gconf/Lubuntu.mandatory.path'), ('QT_QPA_PLATFORMTHEME', 'lxqt'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'rizkymille'), ('WINDOWID', '0'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('DEFAULTS_PATH', '/usr/share/gconf/Lubuntu.default.path'), ('COLORFGBG', '15;0'), ('TERM', 'xterm-256color'), ('GTK_OVERLAY_SCROLLING', '0'), ('XDG_SESSION_ID', '4'), ('ROS_LOCALHOST_ONLY', '0'), ('SAL_USE_VCLPLUGIN', 'qt5'), ('PATH', '/opt/ros/foxy/bin:/home/rizkymille/.cargo/bin:/opt/gcc-arm-none-eabi-9-2020-q2-update/bin:/home/rizkymille/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session1'), ('XDG_MENU_PREFIX', 'lxqt-'), ('LC_ADDRESS', 'id_ID.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'LXQt'), ('LC_TELEPHONE', 'id_ID.UTF-8'), ('XDG_DATA_HOME', '/home/rizkymille/.local/share'), ('XDG_CONFIG_HOME', '/home/rizkymille/.config'), ('XDG_SESSION_DESKTOP', ''), ('XAUTHORITY', '/home/rizkymille/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-6yzOpIRighSe/agent.1737'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'id_ID.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LXQT_SESSION_CONFIG', 'session'), ('LC_MEASUREMENT', 'id_ID.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'id_ID.UTF-8'), ('XDG_VTNR', '1'), ('PWD', '/home/rizkymille/ros2-examples/build/example_infs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-Lubuntu:/etc/xdg:/etc:/usr/share'), ('XDG_DATA_DIRS', '/usr/share/Lubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'id_ID.UTF-8'), ('LC_PAPER', 'id_ID.UTF-8'), ('QT_PLATFORM_PLUGIN', 'lxqt'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[8.725129] (-) TimerEvent: {}
+[8.731252] (example_infs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[8.731652] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/ament_index/resource_index/rosidl_interfaces/example_infs\n'}
+[8.731845] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs\n'}
+[8.732131] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action\n'}
+[8.732310] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/bruh.h\n'}
+[8.732462] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail\n'}
+[8.732611] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail/bruh__functions.c\n'}
+[8.732763] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail/bruh__type_support.h\n'}
+[8.733022] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail/bruh__struct.h\n'}
+[8.733192] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail/bruh__functions.h\n'}
+[8.733343] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv\n'}
+[8.733492] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/print.h\n'}
+[8.733643] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail\n'}
+[8.733794] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail/print__functions.c\n'}
+[8.733944] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail/print__struct.h\n'}
+[8.734254] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail/print__type_support.h\n'}
+[8.734408] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail/print__functions.h\n'}
+[8.734556] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg\n'}
+[8.734703] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/uhuy.h\n'}
+[8.734818] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/rosidl_generator_c__visibility_control.h\n'}
+[8.734932] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail\n'}
+[8.735045] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail/uhuy__functions.h\n'}
+[8.735162] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail/uhuy__type_support.h\n'}
+[8.735278] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail/uhuy__struct.h\n'}
+[8.735405] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail/uhuy__functions.c\n'}
+[8.735522] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/environment/library_path.sh\n'}
+[8.735738] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/environment/library_path.dsv\n'}
+[8.735976] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__rosidl_generator_c.so\n'}
+[8.736098] (example_infs) StdoutLine: {'line': b'-- Set runtime path of "/home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__rosidl_generator_c.so" to ""\n'}
+[8.736253] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs\n'}
+[8.736367] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action\n'}
+[8.736489] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail\n'}
+[8.736604] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail/bruh__rosidl_typesupport_fastrtps_c.h\n'}
+[8.736717] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv\n'}
+[8.736837] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail\n'}
+[8.736978] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail/print__rosidl_typesupport_fastrtps_c.h\n'}
+[8.737095] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg\n'}
+[8.737212] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[8.737326] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail\n'}
+[8.737602] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail/uhuy__rosidl_typesupport_fastrtps_c.h\n'}
+[8.737751] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__rosidl_typesupport_fastrtps_c.so\n'}
+[8.737878] (example_infs) StdoutLine: {'line': b'-- Set runtime path of "/home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[8.737992] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs\n'}
+[8.738134] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action\n'}
+[8.738259] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail\n'}
+[8.738396] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail/dds_fastrtps\n'}
+[8.738520] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail/bruh__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[8.738639] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv\n'}
+[8.738778] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail\n'}
+[8.738907] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail/print__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[8.739036] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail/dds_fastrtps\n'}
+[8.739331] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg\n'}
+[8.739456] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[8.739576] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail\n'}
+[8.739727] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail/dds_fastrtps\n'}
+[8.739849] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail/uhuy__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[8.739969] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[8.740101] (example_infs) StdoutLine: {'line': b'-- Set runtime path of "/home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[8.740223] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs\n'}
+[8.740342] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action\n'}
+[8.740461] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail\n'}
+[8.740574] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail/bruh__type_support.c\n'}
+[8.740700] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail/bruh__rosidl_typesupport_introspection_c.h\n'}
+[8.740930] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv\n'}
+[8.741089] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail\n'}
+[8.741217] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail/print__rosidl_typesupport_introspection_c.h\n'}
+[8.741341] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail/print__type_support.c\n'}
+[8.741468] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg\n'}
+[8.741596] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[8.741721] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail\n'}
+[8.741848] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail/uhuy__rosidl_typesupport_introspection_c.h\n'}
+[8.741975] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail/uhuy__type_support.c\n'}
+[8.742104] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__rosidl_typesupport_introspection_c.so\n'}
+[8.742226] (example_infs) StdoutLine: {'line': b'-- Set runtime path of "/home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__rosidl_typesupport_introspection_c.so" to ""\n'}
+[8.742352] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__rosidl_typesupport_c.so\n'}
+[8.742482] (example_infs) StdoutLine: {'line': b'-- Set runtime path of "/home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__rosidl_typesupport_c.so" to ""\n'}
+[8.742605] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs\n'}
+[8.742729] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action\n'}
+[8.742864] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/bruh.hpp\n'}
+[8.742989] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail\n'}
+[8.743113] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail/bruh__struct.hpp\n'}
+[8.743296] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail/bruh__builder.hpp\n'}
+[8.743598] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail/bruh__traits.hpp\n'}
+[8.743742] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv\n'}
+[8.743840] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/print.hpp\n'}
+[8.743916] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail\n'}
+[8.743992] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail/print__struct.hpp\n'}
+[8.744124] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail/print__traits.hpp\n'}
+[8.744213] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail/print__builder.hpp\n'}
+[8.744323] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg\n'}
+[8.744399] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/uhuy.hpp\n'}
+[8.744475] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail\n'}
+[8.744551] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail/uhuy__builder.hpp\n'}
+[8.744636] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail/uhuy__struct.hpp\n'}
+[8.744721] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail/uhuy__traits.hpp\n'}
+[8.744844] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs\n'}
+[8.744950] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action\n'}
+[8.745034] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail\n'}
+[8.745116] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail/bruh__rosidl_typesupport_introspection_cpp.hpp\n'}
+[8.745228] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/action/detail/bruh__type_support.cpp\n'}
+[8.745306] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv\n'}
+[8.745395] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail\n'}
+[8.745481] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail/print__rosidl_typesupport_introspection_cpp.hpp\n'}
+[8.745573] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/srv/detail/print__type_support.cpp\n'}
+[8.745652] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg\n'}
+[8.745728] (example_infs) StdoutLine: {'line': b'-- Up-to-date: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail\n'}
+[8.745804] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail/uhuy__rosidl_typesupport_introspection_cpp.hpp\n'}
+[8.745880] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/include/example_infs/msg/detail/uhuy__type_support.cpp\n'}
+[8.745956] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__rosidl_typesupport_introspection_cpp.so\n'}
+[8.746032] (example_infs) StdoutLine: {'line': b'-- Set runtime path of "/home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[8.746109] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__rosidl_typesupport_cpp.so\n'}
+[8.746185] (example_infs) StdoutLine: {'line': b'-- Set runtime path of "/home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__rosidl_typesupport_cpp.so" to ""\n'}
+[8.746262] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/environment/pythonpath.sh\n'}
+[8.746346] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/environment/pythonpath.dsv\n'}
+[8.746422] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/__init__.py\n'}
+[8.783777] (example_infs) StdoutLine: {'line': b"Compiling '/home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/__init__.py'...\n"}
+[8.788666] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/srv\n'}
+[8.789133] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/srv/__init__.py\n'}
+[8.789340] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/srv/_print_s.c\n'}
+[8.789656] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/srv/_print.py\n'}
+[8.789858] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/msg\n'}
+[8.790145] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/msg/__init__.py\n'}
+[8.790367] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/msg/_uhuy.py\n'}
+[8.790611] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/msg/_uhuy_s.c\n'}
+[8.790860] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/action\n'}
+[8.791111] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/action/__init__.py\n'}
+[8.791364] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/action/_bruh_s.c\n'}
+[8.791604] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/action/_bruh.py\n'}
+[8.792513] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/example_infs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so\n'}
+[8.793673] (example_infs) StdoutLine: {'line': b'-- Set runtime path of "/home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/example_infs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so" to ""\n'}
+[8.794225] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/example_infs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so\n'}
+[8.795311] (example_infs) StdoutLine: {'line': b'-- Set runtime path of "/home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/example_infs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so" to ""\n'}
+[8.795702] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/example_infs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so\n'}
+[8.796790] (example_infs) StdoutLine: {'line': b'-- Set runtime path of "/home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages/example_infs/example_infs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so" to ""\n'}
+[8.797155] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__python.so\n'}
+[8.797599] (example_infs) StdoutLine: {'line': b'-- Set runtime path of "/home/rizkymille/ros2-examples/install/example_infs/lib/libexample_infs__python.so" to ""\n'}
+[8.797952] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/srv/Print.idl\n'}
+[8.798130] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/msg/Uhuy.idl\n'}
+[8.798451] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/action/Bruh.idl\n'}
+[8.798696] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/srv/Print.srv\n'}
+[8.799082] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/srv/Print_Request.msg\n'}
+[8.799278] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/srv/Print_Response.msg\n'}
+[8.799500] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/msg/Uhuy.msg\n'}
+[8.799834] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/action/Bruh.action\n'}
+[8.800229] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/ament_index/resource_index/package_run_dependencies/example_infs\n'}
+[8.800603] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/ament_index/resource_index/parent_prefix_path/example_infs\n'}
+[8.800865] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/environment/ament_prefix_path.sh\n'}
+[8.801149] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/environment/ament_prefix_path.dsv\n'}
+[8.801418] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/environment/path.sh\n'}
+[8.801702] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/environment/path.dsv\n'}
+[8.801960] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/local_setup.bash\n'}
+[8.802226] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/local_setup.sh\n'}
+[8.802484] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/local_setup.zsh\n'}
+[8.802742] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/local_setup.dsv\n'}
+[8.802989] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/package.dsv\n'}
+[8.803354] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/ament_index/resource_index/packages/example_infs\n'}
+[8.803872] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/example_infs__rosidl_generator_cExport.cmake\n'}
+[8.804095] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/example_infs__rosidl_generator_cExport-noconfig.cmake\n'}
+[8.804350] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/example_infs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[8.804575] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/example_infs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[8.804730] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/example_infs__rosidl_typesupport_cExport.cmake\n'}
+[8.804907] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/example_infs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[8.805154] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/example_infs__rosidl_generator_cppExport.cmake\n'}
+[8.805420] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/example_infs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[8.805616] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/example_infs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[8.805760] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/example_infs__rosidl_typesupport_cppExport.cmake\n'}
+[8.805949] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/example_infs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[8.806113] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/rosidl_cmake-extras.cmake\n'}
+[8.806267] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[8.806457] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[8.806611] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[8.806823] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[8.807070] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[8.807223] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[8.807356] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/example_infsConfig.cmake\n'}
+[8.807501] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake/example_infsConfig-version.cmake\n'}
+[8.807658] (example_infs) StdoutLine: {'line': b'-- Installing: /home/rizkymille/ros2-examples/install/example_infs/share/example_infs/package.xml\n'}
+[8.812503] (example_infs) CommandEnded: {'returncode': 0}
+[8.826709] (-) TimerEvent: {}
+[8.927172] (-) TimerEvent: {}
+[8.966745] (example_infs) JobEnded: {'identifier': 'example_infs', 'rc': 0}
+[8.968059] (example_programs) JobStarted: {'identifier': 'example_programs'}
+[8.980394] (example_programs) JobProgress: {'identifier': 'example_programs', 'progress': 'cmake'}
+[8.983057] (example_programs) Command: {'cmd': ['/usr/bin/cmake', '/home/rizkymille/ros2-examples/example_programs', '-DCMAKE_INSTALL_PREFIX=/home/rizkymille/ros2-examples/install/example_programs'], 'cwd': '/home/rizkymille/ros2-examples/build/example_programs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', ''), ('GTK_CSD', '0'), ('USER', 'rizkymille'), ('LC_TIME', 'id_ID.UTF-8'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1782'), ('XDG_SESSION_TYPE', 'x11'), ('XDG_CACHE_HOME', '/home/rizkymille/.cache'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/rizkymille/ros2-examples/install/example_infs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/usr/bin/google-chrome-stable'), ('HOME', '/home/rizkymille'), ('OLDPWD', '/home/rizkymille'), ('DESKTOP_SESSION', 'Lubuntu'), ('ROS_PYTHON_VERSION', '3'), ('LXQT_DEFAULT_OPENBOX_CONFIG', '/etc/xdg/xdg-Lubuntu/openbox/lxqt-rc.xml'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('LC_MONETARY', 'id_ID.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('MANDATORY_PATH', '/usr/share/gconf/Lubuntu.mandatory.path'), ('QT_QPA_PLATFORMTHEME', 'lxqt'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'rizkymille'), ('WINDOWID', '0'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('DEFAULTS_PATH', '/usr/share/gconf/Lubuntu.default.path'), ('COLORFGBG', '15;0'), ('TERM', 'xterm-256color'), ('GTK_OVERLAY_SCROLLING', '0'), ('XDG_SESSION_ID', '4'), ('ROS_LOCALHOST_ONLY', '0'), ('SAL_USE_VCLPLUGIN', 'qt5'), ('PATH', '/opt/ros/foxy/bin:/home/rizkymille/.cargo/bin:/opt/gcc-arm-none-eabi-9-2020-q2-update/bin:/home/rizkymille/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session1'), ('XDG_MENU_PREFIX', 'lxqt-'), ('LC_ADDRESS', 'id_ID.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'LXQt'), ('LC_TELEPHONE', 'id_ID.UTF-8'), ('XDG_DATA_HOME', '/home/rizkymille/.local/share'), ('XDG_CONFIG_HOME', '/home/rizkymille/.config'), ('XDG_SESSION_DESKTOP', ''), ('XAUTHORITY', '/home/rizkymille/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-6yzOpIRighSe/agent.1737'), ('AMENT_PREFIX_PATH', '/home/rizkymille/ros2-examples/install/example_infs:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'id_ID.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LXQT_SESSION_CONFIG', 'session'), ('LC_MEASUREMENT', 'id_ID.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'id_ID.UTF-8'), ('XDG_VTNR', '1'), ('PWD', '/home/rizkymille/ros2-examples/build/example_programs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-Lubuntu:/etc/xdg:/etc:/usr/share'), ('XDG_DATA_DIRS', '/usr/share/Lubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'id_ID.UTF-8'), ('LC_PAPER', 'id_ID.UTF-8'), ('QT_PLATFORM_PLUGIN', 'lxqt'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/rizkymille/ros2-examples/install/example_infs:/opt/ros/foxy')]), 'shell': False}
+[9.027343] (-) TimerEvent: {}
+[9.066907] (example_programs) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[9.127533] (-) TimerEvent: {}
+[9.144763] (example_programs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[9.152497] (example_programs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[9.227753] (-) TimerEvent: {}
+[9.244327] (example_programs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[9.246931] (example_programs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[9.327946] (-) TimerEvent: {}
+[9.353856] (example_programs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[9.374430] (example_programs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[9.374824] (example_programs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[9.377799] (example_programs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[9.428090] (-) TimerEvent: {}
+[9.491670] (example_programs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[9.494502] (example_programs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[9.528257] (-) TimerEvent: {}
+[9.601025] (example_programs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[9.616025] (example_programs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[9.616583] (example_programs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[9.619022] (example_programs) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[9.628428] (-) TimerEvent: {}
+[9.652445] (example_programs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[9.652810] (example_programs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[9.728575] (-) TimerEvent: {}
+[9.829029] (-) TimerEvent: {}
+[9.929466] (-) TimerEvent: {}
+[9.947260] (example_programs) StdoutLine: {'line': b'-- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[10.006000] (example_programs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[10.013516] (example_programs) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[10.029655] (-) TimerEvent: {}
+[10.120933] (example_programs) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[10.129822] (-) TimerEvent: {}
+[10.164398] (example_programs) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[10.229996] (-) TimerEvent: {}
+[10.267659] (example_programs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[10.330188] (-) TimerEvent: {}
+[10.345777] (example_programs) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[10.348112] (example_programs) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[10.349759] (example_programs) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[10.430334] (-) TimerEvent: {}
+[10.451060] (example_programs) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[10.451456] (example_programs) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[10.530530] (-) TimerEvent: {}
+[10.565709] (example_programs) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed\n'}
+[10.566080] (example_programs) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads\n'}
+[10.630694] (-) TimerEvent: {}
+[10.650256] (example_programs) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads - not found\n'}
+[10.650506] (example_programs) StdoutLine: {'line': b'-- Looking for pthread_create in pthread\n'}
+[10.730827] (-) TimerEvent: {}
+[10.755227] (example_programs) StdoutLine: {'line': b'-- Looking for pthread_create in pthread - found\n'}
+[10.758041] (example_programs) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[10.831002] (-) TimerEvent: {}
+[10.931472] (-) TimerEvent: {}
+[10.969963] (example_programs) StdoutLine: {'line': b'-- Found rclcpp_action: 2.4.2 (/opt/ros/foxy/share/rclcpp_action/cmake)\n'}
+[11.031666] (-) TimerEvent: {}
+[11.082531] (example_programs) StdoutLine: {'line': b'-- Found rclpy: 1.0.11 (/opt/ros/foxy/share/rclpy/cmake)\n'}
+[11.083143] (example_programs) StdoutLine: {'line': b'-- Found example_infs: 1.0.0 (/home/rizkymille/ros2-examples/install/example_infs/share/example_infs/cmake)\n'}
+[11.131793] (-) TimerEvent: {}
+[11.174559] (example_programs) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.9.7 (/opt/ros/foxy/share/ament_lint_auto/cmake)\n'}
+[11.231997] (-) TimerEvent: {}
+[11.332465] (-) TimerEvent: {}
+[11.432942] (-) TimerEvent: {}
+[11.533385] (-) TimerEvent: {}
+[11.633879] (-) TimerEvent: {}
+[11.658346] (example_programs) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[11.660130] (example_programs) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[11.660945] (example_programs) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/rizkymille/ros2-examples/example_programs/include;$<BUILD_INTERFACE:/home/rizkymille/ros2-examples/example_programs/include>\n'}
+[11.661215] (example_programs) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[11.662681] (example_programs) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[11.662966] (example_programs) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[11.663433] (example_programs) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[11.664208] (example_programs) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[11.664832] (example_programs) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the style conventions in PEP 257\n"}
+[11.666702] (example_programs) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[11.666983] (example_programs) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[11.667596] (example_programs) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[11.672923] (example_programs) StdoutLine: {'line': b'-- Configuring done\n'}
+[11.719738] (example_programs) StdoutLine: {'line': b'-- Generating done\n'}
+[11.722175] (example_programs) StdoutLine: {'line': b'-- Build files have been written to: /home/rizkymille/ros2-examples/build/example_programs\n'}
+[11.734011] (-) TimerEvent: {}
+[11.736996] (example_programs) CommandEnded: {'returncode': 0}
+[11.738180] (example_programs) JobProgress: {'identifier': 'example_programs', 'progress': 'build'}
+[11.740625] (example_programs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/rizkymille/ros2-examples/build/example_programs', '--', '-j8', '-l8'], 'cwd': '/home/rizkymille/ros2-examples/build/example_programs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', ''), ('GTK_CSD', '0'), ('USER', 'rizkymille'), ('LC_TIME', 'id_ID.UTF-8'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1782'), ('XDG_SESSION_TYPE', 'x11'), ('XDG_CACHE_HOME', '/home/rizkymille/.cache'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/rizkymille/ros2-examples/install/example_infs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/usr/bin/google-chrome-stable'), ('HOME', '/home/rizkymille'), ('OLDPWD', '/home/rizkymille'), ('DESKTOP_SESSION', 'Lubuntu'), ('ROS_PYTHON_VERSION', '3'), ('LXQT_DEFAULT_OPENBOX_CONFIG', '/etc/xdg/xdg-Lubuntu/openbox/lxqt-rc.xml'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('LC_MONETARY', 'id_ID.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('MANDATORY_PATH', '/usr/share/gconf/Lubuntu.mandatory.path'), ('QT_QPA_PLATFORMTHEME', 'lxqt'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'rizkymille'), ('WINDOWID', '0'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('DEFAULTS_PATH', '/usr/share/gconf/Lubuntu.default.path'), ('COLORFGBG', '15;0'), ('TERM', 'xterm-256color'), ('GTK_OVERLAY_SCROLLING', '0'), ('XDG_SESSION_ID', '4'), ('ROS_LOCALHOST_ONLY', '0'), ('SAL_USE_VCLPLUGIN', 'qt5'), ('PATH', '/opt/ros/foxy/bin:/home/rizkymille/.cargo/bin:/opt/gcc-arm-none-eabi-9-2020-q2-update/bin:/home/rizkymille/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session1'), ('XDG_MENU_PREFIX', 'lxqt-'), ('LC_ADDRESS', 'id_ID.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'LXQt'), ('LC_TELEPHONE', 'id_ID.UTF-8'), ('XDG_DATA_HOME', '/home/rizkymille/.local/share'), ('XDG_CONFIG_HOME', '/home/rizkymille/.config'), ('XDG_SESSION_DESKTOP', ''), ('XAUTHORITY', '/home/rizkymille/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-6yzOpIRighSe/agent.1737'), ('AMENT_PREFIX_PATH', '/home/rizkymille/ros2-examples/install/example_infs:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'id_ID.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LXQT_SESSION_CONFIG', 'session'), ('LC_MEASUREMENT', 'id_ID.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'id_ID.UTF-8'), ('XDG_VTNR', '1'), ('PWD', '/home/rizkymille/ros2-examples/build/example_programs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-Lubuntu:/etc/xdg:/etc:/usr/share'), ('XDG_DATA_DIRS', '/usr/share/Lubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/rizkymille/ros2-examples/install/example_infs/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'id_ID.UTF-8'), ('LC_PAPER', 'id_ID.UTF-8'), ('QT_PLATFORM_PLUGIN', 'lxqt'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/rizkymille/ros2-examples/install/example_infs:/opt/ros/foxy')]), 'shell': False}
+[11.795205] (example_programs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target HeaderMultiexecutor\x1b[0m\n'}
+[11.797267] (example_programs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target Header\x1b[0m\n'}
+[11.797848] (example_programs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target listener_server_cpp\x1b[0m\n'}
+[11.798145] (example_programs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target talker_client_cpp\x1b[0m\n'}
+[11.834151] (-) TimerEvent: {}
+[11.877106] (example_programs) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding CXX object CMakeFiles/Header.dir/src/Header.cpp.o\x1b[0m\n'}
+[11.878280] (example_programs) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object CMakeFiles/talker_client_cpp.dir/src/talker_client.cpp.o\x1b[0m\n'}
+[11.881212] (example_programs) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/HeaderMultiexecutor.dir/src/HeaderMultiexecutor.cpp.o\x1b[0m\n'}
+[11.881991] (example_programs) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/listener_server_cpp.dir/src/listener_server.cpp.o\x1b[0m\n'}
+[11.934292] (-) TimerEvent: {}
+[12.034667] (-) TimerEvent: {}
+[12.135364] (-) TimerEvent: {}
+[12.235746] (-) TimerEvent: {}
+[12.336180] (-) TimerEvent: {}
+[12.436609] (-) TimerEvent: {}
+[12.537104] (-) TimerEvent: {}
+[12.637620] (-) TimerEvent: {}
+[12.738116] (-) TimerEvent: {}
+[12.838602] (-) TimerEvent: {}
+[12.939097] (-) TimerEvent: {}
+[13.039589] (-) TimerEvent: {}
+[13.140031] (-) TimerEvent: {}
+[13.240456] (-) TimerEvent: {}
+[13.340886] (-) TimerEvent: {}
+[13.441311] (-) TimerEvent: {}
+[13.541749] (-) TimerEvent: {}
+[13.642183] (-) TimerEvent: {}
+[13.742598] (-) TimerEvent: {}
+[13.843006] (-) TimerEvent: {}
+[13.913440] (example_programs) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rizkymille/ros2-examples/example_programs/src/talker_client.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KTalkerClientCpp::TalkerClientCpp()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[13.913779] (example_programs) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rizkymille/ros2-examples/example_programs/src/talker_client.cpp:46:65:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[KTalkerClientCpp::declare_parameter<std::string>(const char [20])\x1b[m\x1b[K\xe2\x80\x99\n'}
+[13.913922] (example_programs) StderrLine: {'line': b'   46 |       this->declare_parameter<std::string>("example_param/input"\x1b[01;31m\x1b[K)\x1b[m\x1b[K;\n'}
+[13.914017] (example_programs) StderrLine: {'line': b'      |                                                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[13.914100] (example_programs) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node.hpp:1224\x1b[m\x1b[K,\n'}
+[13.914191] (example_programs) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors/single_threaded_executor.hpp:28\x1b[m\x1b[K,\n'}
+[13.914281] (example_programs) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors.hpp:22\x1b[m\x1b[K,\n'}
+[13.914370] (example_programs) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146\x1b[m\x1b[K,\n'}
+[13.914458] (example_programs) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/rizkymille/ros2-examples/example_programs/src/talker_client.cpp:7\x1b[m\x1b[K:\n'}
+[13.914548] (example_programs) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node_impl.hpp:157:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kauto rclcpp::Node::declare_parameter(const string&, const ParameterT&, const ParameterDescriptor&, bool) [with ParameterT = std::__cxx11::basic_string<char>; std::string = std::__cxx11::basic_string<char>; rcl_interfaces::msg::ParameterDescriptor = rcl_interfaces::msg::ParameterDescriptor_<std::allocator<void> >]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[13.914657] (example_programs) StderrLine: {'line': b'  157 | \x1b[01;36m\x1b[KNode\x1b[m\x1b[K::declare_parameter(\n'}
+[13.914746] (example_programs) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[13.914831] (example_programs) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node_impl.hpp:157:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  candidate expects 4 arguments, 1 provided\n'}
+[13.914915] (example_programs) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rizkymille/ros2-examples/example_programs/src/talker_client.cpp:48:56:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[KTalkerClientCpp::declare_parameter<int>(const char [19])\x1b[m\x1b[K\xe2\x80\x99\n'}
+[13.915012] (example_programs) StderrLine: {'line': b'   48 |       this->declare_parameter<int>("example_param/bruh"\x1b[01;31m\x1b[K)\x1b[m\x1b[K;\n'}
+[13.915100] (example_programs) StderrLine: {'line': b'      |                                                        \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[13.915200] (example_programs) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node.hpp:1224\x1b[m\x1b[K,\n'}
+[13.915288] (example_programs) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors/single_threaded_executor.hpp:28\x1b[m\x1b[K,\n'}
+[13.915378] (example_programs) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors.hpp:22\x1b[m\x1b[K,\n'}
+[13.915466] (example_programs) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146\x1b[m\x1b[K,\n'}
+[13.915555] (example_programs) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/rizkymille/ros2-examples/example_programs/src/talker_client.cpp:7\x1b[m\x1b[K:\n'}
+[13.915673] (example_programs) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node_impl.hpp:157:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kauto rclcpp::Node::declare_parameter(const string&, const ParameterT&, const ParameterDescriptor&, bool) [with ParameterT = int; std::string = std::__cxx11::basic_string<char>; rcl_interfaces::msg::ParameterDescriptor = rcl_interfaces::msg::ParameterDescriptor_<std::allocator<void> >]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[13.915777] (example_programs) StderrLine: {'line': b'  157 | \x1b[01;36m\x1b[KNode\x1b[m\x1b[K::declare_parameter(\n'}
+[13.915865] (example_programs) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[13.915949] (example_programs) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/node_impl.hpp:157:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  candidate expects 4 arguments, 1 provided\n'}
+[13.943171] (-) TimerEvent: {}
+[14.043637] (-) TimerEvent: {}
+[14.144025] (-) TimerEvent: {}
+[14.244405] (-) TimerEvent: {}
+[14.344765] (-) TimerEvent: {}
+[14.445119] (-) TimerEvent: {}
+[14.545556] (-) TimerEvent: {}
+[14.645927] (-) TimerEvent: {}
+[14.746336] (-) TimerEvent: {}
+[14.846730] (-) TimerEvent: {}
+[14.947118] (-) TimerEvent: {}
+[15.047529] (-) TimerEvent: {}
+[15.148062] (-) TimerEvent: {}
+[15.248688] (-) TimerEvent: {}
+[15.349090] (-) TimerEvent: {}
+[15.449849] (-) TimerEvent: {}
+[15.550273] (-) TimerEvent: {}
+[15.584151] (example_programs) StderrLine: {'line': b'make[2]: *** [CMakeFiles/talker_client_cpp.dir/build.make:63: CMakeFiles/talker_client_cpp.dir/src/talker_client.cpp.o] Error 1\n'}
+[15.584440] (example_programs) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:223: CMakeFiles/talker_client_cpp.dir/all] Error 2\n'}
+[15.584531] (example_programs) StderrLine: {'line': b'make[1]: *** Waiting for unfinished jobs....\n'}
+[15.650399] (-) TimerEvent: {}
+[15.750757] (-) TimerEvent: {}
+[15.851126] (-) TimerEvent: {}
+[15.951519] (-) TimerEvent: {}
+[16.051953] (-) TimerEvent: {}
+[16.152381] (-) TimerEvent: {}
+[16.252775] (-) TimerEvent: {}
+[16.353161] (-) TimerEvent: {}
+[16.453544] (-) TimerEvent: {}
+[16.554005] (-) TimerEvent: {}
+[16.654381] (-) TimerEvent: {}
+[16.754743] (-) TimerEvent: {}
+[16.855099] (-) TimerEvent: {}
+[16.955749] (-) TimerEvent: {}
+[17.056129] (-) TimerEvent: {}
+[17.156477] (-) TimerEvent: {}
+[17.256906] (-) TimerEvent: {}
+[17.357305] (-) TimerEvent: {}
+[17.457711] (-) TimerEvent: {}
+[17.558117] (-) TimerEvent: {}
+[17.658552] (-) TimerEvent: {}
+[17.758936] (-) TimerEvent: {}
+[17.859330] (-) TimerEvent: {}
+[17.959758] (-) TimerEvent: {}
+[18.060154] (-) TimerEvent: {}
+[18.160548] (-) TimerEvent: {}
+[18.260959] (-) TimerEvent: {}
+[18.361353] (-) TimerEvent: {}
+[18.461757] (-) TimerEvent: {}
+[18.562501] (-) TimerEvent: {}
+[18.662869] (-) TimerEvent: {}
+[18.763322] (-) TimerEvent: {}
+[18.863742] (-) TimerEvent: {}
+[18.964174] (-) TimerEvent: {}
+[19.064573] (-) TimerEvent: {}
+[19.164988] (-) TimerEvent: {}
+[19.265481] (-) TimerEvent: {}
+[19.365899] (-) TimerEvent: {}
+[19.466334] (-) TimerEvent: {}
+[19.566711] (-) TimerEvent: {}
+[19.667060] (-) TimerEvent: {}
+[19.767429] (-) TimerEvent: {}
+[19.867858] (-) TimerEvent: {}
+[19.968226] (-) TimerEvent: {}
+[20.020425] (example_programs) StdoutLine: {'line': b'[ 41%] \x1b[32m\x1b[1mLinking CXX shared library libHeader.so\x1b[0m\n'}
+[20.026364] (example_programs) StdoutLine: {'line': b'[ 50%] \x1b[32m\x1b[1mLinking CXX executable listener_server_cpp\x1b[0m\n'}
+[20.068381] (-) TimerEvent: {}
+[20.168848] (-) TimerEvent: {}
+[20.269395] (-) TimerEvent: {}
+[20.369931] (-) TimerEvent: {}
+[20.435299] (example_programs) StdoutLine: {'line': b'[ 58%] \x1b[32m\x1b[1mLinking CXX shared library libHeaderMultiexecutor.so\x1b[0m\n'}
+[20.470077] (-) TimerEvent: {}
+[20.570483] (-) TimerEvent: {}
+[20.592838] (example_programs) StdoutLine: {'line': b'[ 58%] Built target Header\n'}
+[20.621230] (example_programs) StdoutLine: {'line': b'[ 58%] Built target listener_server_cpp\n'}
+[20.670617] (-) TimerEvent: {}
+[20.771034] (-) TimerEvent: {}
+[20.871463] (-) TimerEvent: {}
+[20.889289] (example_programs) StdoutLine: {'line': b'[ 58%] Built target HeaderMultiexecutor\n'}
+[20.890616] (example_programs) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[20.894383] (example_programs) CommandEnded: {'returncode': 2}
+[20.960187] (example_programs) JobEnded: {'identifier': 'example_programs', 'rc': 2}
+[20.971030] (-) EventReactorShutdown: {}

@@ -43,9 +43,9 @@ class TalkerClientCpp : public rclcpp::Node {
       cli_act_bruh = rclcpp_action::create_client<Bruh>(this, "example_act/bruh");
 
       // parameters
-      this->declare_parameter<std::string>("example_param/input");
+      this->declare_parameter<std::string>("example_param/input", "bruh");
 
-      this->declare_parameter<int>("example_param/bruh");
+      this->declare_parameter<int>("example_param/bruh", 0);
 
       TalkerClientCpp::service_check(); // check if service server online
 

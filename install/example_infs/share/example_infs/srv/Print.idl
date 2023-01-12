@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from example_infs/srv/Print.srv
+// generated code does not contain a copyright notice
+
+
+module example_infs {
+  module srv {
+    @verbatim (language="comment", text=
+      " Request")
+    struct Print_Request {
+      string command;
+    };
+    @verbatim (language="comment", text=
+      " Response")
+    struct Print_Response {
+      boolean success;
+    };
+  };
+};
